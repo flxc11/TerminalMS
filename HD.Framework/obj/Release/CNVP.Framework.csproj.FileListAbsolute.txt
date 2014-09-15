@@ -1,0 +1,11 @@
+D:\研究项目\短信平台\CNVP.Framework\bin\Release\CNVP.Framework.dll
+D:\研究项目\短信平台\CNVP.Framework\bin\Release\CNVP.Framework.pdb
+D:\研究项目\短信平台\CNVP.Framework\bin\Release\MySql.Data.dll
+D:\研究项目\短信平台\CNVP.Framework\bin\Release\System.Data.SQLite.dll
+D:\研究项目\短信平台\CNVP.Framework\obj\Release\CNVP.Framework.dll
+D:\研究项目\短信平台\CNVP.Framework\obj\Release\CNVP.Framework.pdb
+D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Framework\bin\Release\CNVP.Framework.dll
+D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Framework\bin\Release\CNVP.Framework.pdb
+D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Framework\bin\Release\MySql.Data.dll
+D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Framework\obj\Release\CNVP.Framework.dll
+D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Framework\obj\Release\CNVP.Framework.pdb

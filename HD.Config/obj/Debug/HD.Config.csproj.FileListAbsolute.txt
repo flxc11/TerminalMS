@@ -1,0 +1,14 @@
+D:\日报传媒\TerminalMS\HD.Config\bin\Debug\HD.Config.dll
+D:\日报传媒\TerminalMS\HD.Config\bin\Debug\HD.Config.pdb
+D:\日报传媒\TerminalMS\HD.Config\bin\Debug\HD.Framework.dll
+D:\日报传媒\TerminalMS\HD.Config\bin\Debug\HD.Framework.pdb
+D:\日报传媒\TerminalMS\HD.Config\obj\Debug\HD.Config.csprojResolveAssemblyReference.cache
+D:\日报传媒\TerminalMS\HD.Config\obj\Debug\HD.Config.dll
+D:\日报传媒\TerminalMS\HD.Config\obj\Debug\HD.Config.pdb
+D:\工作文件夹\CMS系统\TerminalMS\HD.Config\bin\Debug\HD.Config.dll
+D:\工作文件夹\CMS系统\TerminalMS\HD.Config\bin\Debug\HD.Config.pdb
+D:\工作文件夹\CMS系统\TerminalMS\HD.Config\bin\Debug\HD.Framework.dll
+D:\工作文件夹\CMS系统\TerminalMS\HD.Config\bin\Debug\HD.Framework.pdb
+D:\工作文件夹\CMS系统\TerminalMS\HD.Config\obj\Debug\HD.Config.csprojResolveAssemblyReference.cache
+D:\工作文件夹\CMS系统\TerminalMS\HD.Config\obj\Debug\HD.Config.dll
+D:\工作文件夹\CMS系统\TerminalMS\HD.Config\obj\Debug\HD.Config.pdb

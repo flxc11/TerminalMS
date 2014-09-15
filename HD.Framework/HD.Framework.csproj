@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{52DA8C45-C1F7-4479-AC2A-5E6B9AC5817A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HD.Framework</RootNamespace>
+    <AssemblyName>HD.Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aop\AspectAttribute.cs" />
+    <Compile Include="Aop\AspectProxy.cs" />
+    <Compile Include="Aop\AspectTest.cs" />
+    <Compile Include="Aop\TransactionAttribute.cs" />
+    <Compile Include="DataAccess\DataBase.cs" />
+    <Compile Include="DataAccess\DataBaseType.cs" />
+    <Compile Include="DataAccess\DataFactory.cs" />
+    <Compile Include="DataAccess\DbCommon.cs" />
+    <Compile Include="DataAccess\DbPager.cs" />
+    <Compile Include="DataAccess\DbReader.cs" />
+    <Compile Include="DataAccess\DbUtils.cs" />
+    <Compile Include="DataAccess\IDataBase.cs" />
+    <Compile Include="DataAccess\SqlParam.cs" />
+    <Compile Include="DataAccess\SqlTables.cs" />
+    <Compile Include="DataAccess\Transaction.cs" />
+    <Compile Include="Define\SystemInfo.cs" />
+    <Compile Include="Define\UserInfo.cs" />
+    <Compile Include="Helper\AuthSoapHeader.cs" />
+    <Compile Include="Helper\ConfigHelper.cs" />
+    <Compile Include="Helper\CookieHelper.cs" />
+    <Compile Include="Helper\HashTableHelper.cs" />
+    <Compile Include="Helper\JsonHelper.cs" />
+    <Compile Include="Helper\LogHelper.cs" />
+    <Compile Include="Helper\RequestHelper.cs" />
+    <Compile Include="Helper\SerializeHelper.cs" />
+    <Compile Include="Helper\ShowMsgHelper.cs" />
+    <Compile Include="Helper\WebServiceHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\BigInteger.cs" />
+    <Compile Include="Utils\Date.cs" />
+    <Compile Include="Utils\DateSorter.cs" />
+    <Compile Include="Utils\Encrypt.cs" />
+    <Compile Include="Utils\FileUtils.cs" />
+    <Compile Include="Utils\KeyAttribute.cs" />
+    <Compile Include="Utils\Pager.cs" />
+    <Compile Include="Utils\Public.cs" />
+    <Compile Include="Utils\Rand.cs" />
+    <Compile Include="Utils\Singleton.cs" />
+    <Compile Include="Utils\TypeConverter.cs" />
+    <Compile Include="Utils\WebServiceUtils.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="obj\Debug\CNVP.Framework.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\CNVP.Framework.dll" />
+    <Content Include="obj\Debug\CNVP.Framework.pdb" />
+    <Content Include="obj\Release\CNVP.Framework.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\CNVP.Framework.dll" />
+    <Content Include="obj\Release\CNVP.Framework.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="obj\Debug\CNVP.Framework.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Debug\CNVP.UI.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Debug\CNVP.WebSite.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

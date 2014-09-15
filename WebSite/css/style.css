@@ -1,0 +1,321 @@
+@charset "UTF-8";
+html, body {
+  width: 100%;
+  height: 100%;
+  background: url("../images/bgmain.jpg") 0 102px repeat-x #c4eaf9;
+  min-width: 1000px; }
+
+html {
+  _height: auto;
+  _padding: 102px 0 0 0; }
+
+.wrap-login {
+  width: 650px;
+  height: 300px;
+  margin: 0 auto;
+  padding-top: 195px; }
+
+.wrap-reg {
+  width: 650px;
+  height: 300px;
+  margin: 0 auto; }
+
+.login {
+  width: 650px;
+  height: 300px;
+  background: url("../images/bglogin1.png"); }
+
+.reg {
+  width: 650px;
+  height: 550px;
+  background: url("../images/bgreg.png"); }
+
+/*header */
+.wrap-header {
+  width: 100%;
+  min-width: 1000px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 102px;
+  background: url("../images/bgheader02.jpg") repeat-x; }
+
+.header {
+  width: 100%;
+  height: 102px;
+  background: url("../images/logo2.png") no-repeat 20px center;
+}
+
+.lg-info {
+  position: absolute;
+  right: 25px;
+  top: 20px;
+  text-align: right; }
+
+.lg-info h2 {
+  color: #a1a2a3;
+  font-weight: bold;
+  line-height: 30px; }
+
+.lg-info a {
+  border: 1px solid #51a5d4;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background: url("../images/bgalogin.jpg");
+  display: inline-block;
+  color: white; }
+
+.manager {
+  background: url("../images/iconmanager.png") no-repeat 11px center;
+  display: block;
+  padding: 0 13px 0 33px; }
+
+.lg-out {
+  background: url("../images/iconlgout.png") no-repeat 11px center;
+  padding: 0 13px 0 33px;
+  display: block; }
+
+/*main */
+.main-l, .main-r {
+  position: absolute;
+  top: 112px;
+  bottom: 10px;
+  _height: 100%;
+  overflow: auto;
+  background: white; }
+
+/*main-left */
+.main-l {
+  width: 208px;
+  position: absolute;
+  left: 10px;
+  -webkit-box-shadow: 0 0 3px #eeeeee; }
+
+.panel {
+  width: 100%;
+  overflow: hidden; }
+
+.panel-h2 {
+  background: url("../images/bgpanelh2.jpg");
+  padding-left: 54px;
+  font-size: 14px;
+  color: #2672b5;
+  font-weight: bold;
+  height: 36px;
+  line-height: 34px; }
+
+.appli-manag {
+  border: 1px solid #ccebf7;
+  width: 184px;
+  margin: 10px auto 0;
+  overflow: hidden; }
+  .appli-manag h2 {
+    background: url("../images/bgapplimanagh2.png") repeat-x;
+    line-height: 24px;
+    border-bottom: 1px solid #ccebf7;
+    font-size: 14px;
+    color: #2672b5; }
+  .appli-manag ul {
+    padding: 5px 20px; }
+    .appli-manag ul li {
+      float: left;
+      line-height: 26px;
+      background: url("../images/iconsquare.jpg") no-repeat 0 center;
+      padding-left: 12px;
+      width: 132px; }
+      .appli-manag ul li a {
+        color: #444444; }
+        .appli-manag ul li a:hover {
+          color: #265a87;
+          font-weight: bold; }
+
+.appli-icon1 {
+  background: url("../images/iconappli1.png") no-repeat 8px center;
+  padding-left: 34px; }
+
+/*main-r */
+.main-r {
+  _position: relative;
+  left: 226px;
+  right: 10px;
+  _top: 0;
+  _left: 0;
+  _margin-left: 262px;
+  background: white;
+  min-width: 900px; }
+
+.mainScroll {
+  width: 100%;
+  overflow: hidden; }
+
+.position, .panel-header {
+  border: 1px solid #56a6d1;
+  font-weight: bold;
+  line-height: 32px;
+  background: url("../images/bgposition.jpg");
+  padding-left: 22px;
+  color: white;
+  font-family: "宋体"; }
+  .position a, .panel-header a {
+    color: white; }
+
+.panel-header {
+  padding: 0 0 0 22px; }
+
+.panel-title {
+  line-height: 32px;
+  height: 32px;
+  color: white; }
+
+.main-form {
+  padding: 0 20px;
+  font-size: 14px; }
+
+.table-type {
+  overflow: hidden; }
+
+.table-type a {
+  display: inline-block;
+  line-height: 22px;
+  width: 200px;
+  text-align: center;
+  color: black;
+  border: 1px solid #afd8e8;
+  background: #c4eaf9;
+  margin: 15px 10px 15px 0; }
+  .table-type a:hover {
+    color: white;
+    background: #53a8d7; }
+
+.table-type a.index_tabshover {
+  color: white;
+  background: #53a8d7; }
+
+.table-1 {
+  border: 1px solid #ceecf7;
+  overflow: hidden;
+  padding: 20px 0;
+  margin-top: 20px;
+}
+
+.control-label {
+  float: left;
+  width: 120px;
+  text-align: right; }
+
+.control-label1 {
+  padding-left: 118px;
+  float: left;
+  width: 403px;
+  text-align: left; }
+
+.control-label2 {
+  float: left;
+  width: 150px;
+  text-align: right; }
+
+.controls {
+  float: left;
+  text-align: left;
+  width: 290px; }
+
+.control-group {
+  margin-bottom: 20px;
+  overflow: hidden;
+  width: 100%; }
+
+.app-input {
+  width: 250px;
+  border: 1px solid #afd8e8;
+  display: inline-block;
+  height: 18px;
+  padding: 4px;
+  margin-bottom: 9px;
+  line-height: 18px;
+  color: #555555;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px; }
+
+#BulkFreight {
+  margin-top: 20px;
+  background: #ccebf7; }
+
+#BulkFreight tr td {
+  background: white;
+  font-size: 14px;
+  text-align: center;
+  text-valign: middle; }
+
+#BulkFreight tr td input {
+  width: 80%;
+  border: 1px solid #afd8e8;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  height: 18px;
+  padding: 4px;
+  line-height: 18px; }
+
+#BulkFreight tr td select, .select1 {
+  width: 260px;
+  border: 1px solid #afd8e8;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  height: 26px;
+  line-height: 26px; }
+
+#BulkFreight tr#Bf-ftr td {
+  background: url("../images/bgBulkFreight.jpg") repeat-x; }
+
+.pl118 {
+  padding-left: 118px; }
+
+.pl170 {
+  padding-left: 170px; }
+
+.control-label1 span {
+  color: #2672b5; }
+
+#bulk-add, #bulk-subtraction {
+  cursor: pointer; }
+
+.cnvp-tabs-hide {
+  display: none; }
+
+#scf-a {
+  display: none; }
+
+.btn-submit {
+  width: 99px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background: url("../images/bgbtnsubmit.jpg");
+  color: white;
+  display: block;
+  margin: 20px 0;
+  float: left;
+  margin-right: 20px; }
+  .btn-submit:hover {
+    color: white; }
+
+#search-div {
+  position: absolute;
+  right: 20px;
+  text-align: right;
+  top: 0; }
+.single-fields-div {
+  float: left;
+  width: 110px;
+  padding: 15px 0;
+  font-size: 14px;
+  vertical-align: middle;
+}
+.single-fields {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
