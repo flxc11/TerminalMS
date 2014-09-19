@@ -13,7 +13,7 @@ namespace WebSite.admin
 {
     public partial class terminaledit : AdminPage
     {
-        public string terminalGuid, terminalId, terPage = string.Empty;
+        public string terminalGuid, terminalId, terPage, startTime, endTime, selectType, keyWord = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             string Action = Request.Params["Action"];
@@ -28,6 +28,10 @@ namespace WebSite.admin
                 #region 当前页面赋值
                 string guid = Request.Params["guid"];
                 terPage = Request.Params["page"];
+                startTime = Request.Params["StartTime"];
+                endTime = Request.Params["EndTime"];
+                selectType = Request.Params["SelectType"];
+                keyWord = Request.Params["Keyword"];
 
                 if (!string.IsNullOrEmpty(guid))
                 {
@@ -75,6 +79,10 @@ namespace WebSite.admin
             string terminalGuid = Request.Params["terminalGuid"];
             string terminalId = Request.Params["terminalId"];
             string terPage = Request.Params["terPage"];
+            string startTime = Request.Params["startTime"];
+            string endTime = Request.Params["endTime"];
+            string selectType = Request.Params["selectType"];
+            string keyWord = Request.Params["keyWord"];
             HD.UI.FileUpload upload = new HD.UI.FileUpload();
             HD.Model.Terminal terminal = new HD.Model.Terminal();
             HD.Model.Source source = new HD.Model.Source();
@@ -92,7 +100,7 @@ namespace WebSite.admin
             HD.Data.Terminal bll = new HD.Data.Terminal();
             bll.Edit(terminal, source);
 
-            MessageBox.ShowMessage("修改提交成功！", "terminallist.aspx?page=" + terPage);
+            MessageBox.ShowMessage("修改提交成功！", "terminallist.aspx?page=" + terPage + "&StartTime=" + startTime + "&EndTime=" + endTime + "&SelectType=" + selectType + "&Keyword=" + keyWord);
         }
         #endregion
     }

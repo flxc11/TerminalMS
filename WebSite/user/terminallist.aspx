@@ -45,13 +45,14 @@
 				
 			</select>
             <input type="text" name="sea_keyword" id="sea_keyword" class="pagination-num" style="width:100px;" />
-			<a href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="dosearch();">搜索</a>
+			<a href="javascript:;"  onclick="dosearch();" id="search_a">搜索</a>
 		</div>
         <div id="tb"></div>
     </div>
     </form>
 </body>
 <script>
+    console.log(typeof $.query.get("StartTime"));
     function getWidth(percent) {
         //return document.body.clientWidth * percent ;
         return $(".main-r").width() * percent;
@@ -97,8 +98,7 @@
                 $("#sea_select").append("<option value='" + arrfields[i] + "'>" + arrexplains[i] + "</option>");
                 if (arrfields[i] == "OutIn") {
                     columnArray.push(
-                        {
-                            title: arrexplains[i], field: arrfields[i], width: getWidth(0.05), align: 'center',
+                        { title: arrexplains[i], field: arrfields[i], width: getWidth(0.05), align: 'center',
                             formatter: function (value, row, index) {
                                 if (row.OutIn == "0") {
                                     return "室内";
@@ -108,10 +108,9 @@
                             }
                         }
                     );
-                } else if (arrfields[i] == "SignIn") {
+                } else if(arrfields[i] == "SignIn") {
                     columnArray.push(
-                        {
-                            title: arrexplains[i], field: arrfields[i], width: getWidth(0.05), align: 'center',
+                        { title: arrexplains[i], field: arrfields[i], width: getWidth(0.05), align: 'center',
                             formatter: function (value, row, index) {
                                 if (row.SignIn == "0") {
                                     return "<span style='color:red'>未签收</span>";
@@ -121,12 +120,11 @@
                             }
                         }
                     );
-                } else if (arrfields[i] == "PostTime") {
+                } else if(arrfields[i] == "PostTime") {
                     columnArray.push(
-                        {
-                            title: arrexplains[i], field: arrfields[i], width: getWidth(0.05), align: 'center',
+                        { title: arrexplains[i], field: arrfields[i], width: getWidth(0.05), align: 'center',
                             formatter: function (value, row, index) {
-                                return Common.TimeFormatter(row.PostTime, row, index);
+                                return Common.TimeFormatter(row.PostTime,row,index);
                             }
                         }
                     );
@@ -135,19 +133,43 @@
                         {
                             title: arrexplains[i], field: arrfields[i], width: getWidth(0.05), align: 'center',
                             formatter: function (value, row, index) {
-                                return "<a href='terminaldetail.aspx?guid=" + row.Guid + "&page=" + $('#tb').datagrid('getPager').data("pagination").options.pageNumber + "'>" + value + "</a>";
+                                return "<a href='terminaldetail.aspx?guid=" + row.Guid +
+                                "&page=" + $('#tb').datagrid('getPager').data("pagination").options.pageNumber +
+                                "&StartTime=" + $("input[name='sea_start']").val() +
+                                "&EndTime=" + $("input[name='sea_end']").val() +
+                                "&SelectType=" + $("select[name='sea_select']").val() +
+                                "&Keyword=" + $("#sea_keyword").val() +
+                                 "'>" + value + "</a>";
                             }
                         }
                     );
                 };
             };
+            if ($.query.get("StartTime") != true && $.query.get("StartTime") != "true") {
+                $("#sea_start").datebox('setValue', $.query.get("StartTime"));
+            };
+            if ($.query.get("EndTime") != true && $.query.get("EndTime") != "true") {
+                $("#sea_end").datebox('setValue', $.query.get("EndTime"));
+            };
+            if ($.query.get("SelectType") != true && $.query.get("SelectType") != "true") {
+                $("#sea_select").val($.query.get("SelectType"));
+            };
+            if ($.query.get("Keyword") != true && $.query.get("Keyword") != "true") {
+                $("#sea_keyword").val($.query.get("Keyword"));
+            };
             columnArray.push(
                     {
                         title: '操作', field: 'xxx', width: getWidth(0.05), align: 'center',
                         formatter: function (value, row, index) {
-                            return "<a href='terminaldetail.aspx?guid=" + row.Guid + "&page=" + $('#tb').datagrid('getPager').data("pagination").options.pageNumber + "'>查看</a>";
+                            return "<a href='terminaldetail.aspx?guid=" + row.Guid +
+                            "&page=" + $('#tb').datagrid('getPager').data("pagination").options.pageNumber +
+                            "&StartTime=" + $("input[name='sea_start']").val() +
+                            "&EndTime=" + $("input[name='sea_end']").val() +
+                            "&SelectType=" + $("select[name='sea_select']").val() +
+                            "&Keyword=" + $("#sea_keyword").val() +
+                             "'>查看</a>";
                         }
-                    });
+                });
             $('#tb').datagrid({
                 title: '当前位置：终端管理 > 全部终端列表',
                 width: 'auto',
@@ -158,18 +180,26 @@
                 queryParams: {
                     action: 'GetTerminalList',
                     easyGrid_Sort: fields,
+                    // StartTime: $.query.get("StartTime") == true && "true" ? "" : $.query.get("StartTime"),
+                    // EndTime: $.query.get("EndTime") == true && "true"  ? "" : $.query.get("EndTime"),
+                    // SelectType: $.query.get("SelectType") == true && "true"  ? "" : $.query.get("SelectType"),
+                    // Keyword: $.query.get("Keyword") == true && "true"  ? "" : $.query.get("Keyword"),
+                    StartTime: String($.query.get("StartTime")) == "true" ? "" : $.query.get("StartTime"),
+                    EndTime: String($.query.get("EndTime")) == "true"  ? "" : $.query.get("EndTime"),
+                    SelectType: String($.query.get("SelectType")) == "true"  ? "" : $.query.get("SelectType"),
+                    Keyword: String($.query.get("Keyword")) == "true"  ? "" : $.query.get("Keyword"),
                     Time: new Date().getTime()
                 },
                 idField: 'Id',
                 fix: false,
                 frozenColumns: [[
 
-                ]],
+                ]], 
                 columns: [columnArray],
                 pagination: true,
                 pageSize: 20,
                 pageNumber: parseInt($.query.get("page")) || 1,
-                pageList: [10, 20, 30,50],//可以设置每页记录条数的列表
+                pageList: [10, 20, 30, 50],//可以设置每页记录条数的列表
                 rownumbers: false,
                 toolbar: [{
                     id: 'btnexport',
@@ -181,9 +211,22 @@
                 }
                 ],
                 onLoadSuccess: function () {
+                    //alert($.query.get("Keyword"));
                     var grid = $(".datagrid-toolbar"); //datagrid
                     var date = $("#search-div");
                     grid.append(date);
+                    // if ($.query.get("StartTime") != true && $.query.get("StartTime") != "true") {
+                    //     $("#sea_start").datebox('setValue', $.query.get("StartTime"));
+                    // };
+                    // if ($.query.get("EndTime") != true && $.query.get("EndTime") != "true") {
+                    //     $("#sea_end").datebox('setValue', $.query.get("EndTime"));
+                    // };
+                    // if ($.query.get("SelectType") != true && $.query.get("SelectType") != "true") {
+                    //     $("#sea_select").val($.query.get("SelectType"));
+                    // };
+                    // if ($.query.get("Keyword") != true && $.query.get("Keyword") != "true") {
+                    //     $("#sea_keyword").val($.query.get("Keyword"));
+                    // };
                 }
             });
             var p = $('#tb');
@@ -199,12 +242,16 @@
         }
     });
     function dosearch() {
+        //alert(1);
+        window.location.hash = "StartTime=" + $("input[name='sea_start']").val() + "&EndTime=" + $("input[name='sea_end']").val() + "&SelectType=" + $("select[name='sea_select']").val() + "&Keyword=" + $("#sea_keyword").val();
         if (!/^\s*$/.test($("input[name='sea_start']").val())) {
             if (/^\s*$/.test($("input[name='sea_end']").val())) {
                 alert("请输入结束时间");
                 $("#sea_end").focus();
                 return false;
             } else {
+                //var _host = window.location.host;
+                //history.pushState('','',_host);
                 $("#tb").datagrid("load", {
                     Action: "TerminalSearch",
                     StartTime: $("input[name='sea_start']").val(),

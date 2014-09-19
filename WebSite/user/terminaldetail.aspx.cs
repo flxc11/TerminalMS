@@ -13,7 +13,7 @@ namespace WebSite.user
 {
     public partial class terminaldetail : UserPage
     {
-        public string terPage = string.Empty;
+        public string terPage, startTime, endTime, selectType, keyWord = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -21,6 +21,10 @@ namespace WebSite.user
                 #region 当前页面赋值
                 string guid = Request.Params["guid"];
                 terPage = Request.Params["page"];
+                startTime = Request.Params["StartTime"];
+                endTime = Request.Params["EndTime"];
+                selectType = Request.Params["SelectType"];
+                keyWord = Request.Params["Keyword"];
 
                 if (!string.IsNullOrEmpty(guid))
                 {

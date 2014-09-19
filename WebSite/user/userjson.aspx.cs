@@ -65,6 +65,10 @@ namespace WebSite.user
         private void GetTerminalList()
         {
             string pageIndex = Request.Params["Page"];
+            string _startTime = Request.Params["StartTime"];
+            string _endTime = Request.Params["EndTime"];
+            string _selectType = Request.Params["SelectType"];
+            string _keyword = Request.Params["Keyword"];
             string sqlWhere = string.Empty;
             if (string.IsNullOrEmpty(pageIndex) || !Public.IsNumber(pageIndex))
             {
@@ -76,6 +80,40 @@ namespace WebSite.user
                 pageIndex = "20";
             }
             sqlWhere = UIConfig.Prefix + "Terminal where 1=1 ";
+            if (!string.IsNullOrEmpty(_startTime) && !string.IsNullOrEmpty(_endTime))
+            {
+                sqlWhere += " and PostTime between '" + _startTime + "' and '" + _endTime + "'";
+            }
+            if (!string.IsNullOrEmpty(_selectType))
+            {
+                if (_selectType == "OutIn")
+                {
+                    if (_keyword == "室外")
+                    {
+                        sqlWhere += " and OutIn=1";
+                    }
+                    else
+                    {
+                        sqlWhere += " and OutIn=0";
+                    }
+
+                }
+                else if (_selectType == "SignIn")
+                {
+                    if (_keyword == "未签收")
+                    {
+                        sqlWhere += " and SignIn=0";
+                    }
+                    else if (_keyword == "已签收")
+                    {
+                        sqlWhere += " and SignIn=1";
+                    }
+                }
+                else
+                {
+                    sqlWhere += " and " + _selectType + " like '%" + _keyword + "%'";
+                }
+            }
             int recordCount = 0;
             int pageCount = 0;
 

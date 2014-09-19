@@ -127,7 +127,7 @@ new function(settings) {
             get: function(key) {
                 var target = this.GET(key);
                 if (is(target, Object))
-                    return jQuery.extend(true, {}, target);
+                    return jQuery.extend("true", {}, target);
                 else if (is(target, Array))
                     return target.slice(0);
                 return target;

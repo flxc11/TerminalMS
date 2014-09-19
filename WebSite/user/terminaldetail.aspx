@@ -143,7 +143,7 @@
                         </asp:Repeater>
                     </div>
                     <div class="control-group">
-                        <a href="terminallist.aspx?page=<%=terPage %>" class="btn-submit">返　　回</a>
+                        <a href="terminallist.aspx?page=<%=terPage %>&StatrTime=<%=startTime %>&EndTime=<%=endTime %>&SelectType=<%=selectType %>&Keyword=<%=keyWord %>" class="btn-submit">返　　回</a>
                     </div>
                 </div>
             </div>

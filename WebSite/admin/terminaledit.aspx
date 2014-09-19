@@ -45,6 +45,10 @@
                         <input type="hidden" name="terminalGuid" value="<%=terminalGuid %>" />
                         <input type="hidden" name="terminalId" value="<%=terminalId %>" />
                         <input type="hidden" name="terPage" value="<%=terPage %>" />
+                        <input type="hidden" name="startTime" value="<%=startTime %>" />
+                        <input type="hidden" name="endTime" value="<%=endTime %>" />
+                        <input type="hidden" name="selectType" value="<%=selectType %>" />
+                        <input type="hidden" name="keyWord" value="<%=keyWord %>" />
                         <div class="control-group">
                             <label for="in-out" class="control-label">设备厂商：</label>
                             <div class="controls controls-inline">
@@ -199,7 +203,7 @@
                     </div>
                     <div class="control-group">
                         <a href="javascript:void(0)" class="btn-submit" onclick="submitForm()">保存</a>
-                        <a href="javascript:void(0)" class="btn-submit" onclick="javascript:history.go(-1)">返　　回</a>
+                        <a href='javascript:void(0)' class="btn-submit" id="btn-submit">返　　回</a>
                     </div>
                 </div>
             </div>
@@ -209,6 +213,13 @@
 </body>
 <script>
     $(function () {
+        var _page = $.query.get("page");
+        var _StartTime = $.query.get("StartTime");
+        var _EndTime = $.query.get("EndTime");
+        var _SelectType = $.query.get("SelectType");
+        var _Keyword = $.query.get("Keyword");
+        var backurl = "terminallist.aspx?page=" + _page + "&StartTime=" + _StartTime + "&EndTime=" + _EndTime + "&SelectType=" + _SelectType + "&Keyword=" + _Keyword;
+        $("#btn-submit").attr('href', backurl);
         $(".del-img").on("click", function () {
             var $delete_div = $(this);
             $.messager.confirm('确认对话框', '您确定要删除该附件吗？(删除该附件后将无法再还原)', function (r) {

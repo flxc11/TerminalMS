@@ -1,9 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="terminallist.aspx.cs" Inherits="WebSite.admin.terminallist" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <script type="text/javascript">
+      // If setting document.domain, be sure to do it *before* jQuery is loaded!
+      //document.domain = document.domain.split('.').slice(-2).join('.');
+    </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title><%=HD.Config.UIConfig.SoftName %></title>
     <link rel="stylesheet" href="/css/Global.css" />
@@ -15,6 +18,7 @@
     <script src="/js/easyui-lang-zh_CN.js"></script>
     <script src="/js/cnvp.js"></script>
     <script src="/js/jQuery.query.js"></script>
+    <script src="/js/jquery.ba-hashchange.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -45,13 +49,14 @@
 				
 			</select>
             <input type="text" name="sea_keyword" id="sea_keyword" class="pagination-num" style="width:100px;" />
-			<a href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="dosearch();">搜索</a>
+			<a href="javascript:;"  onclick="dosearch();" id="search_a">搜索</a>
 		</div>
         <div id="tb"></div>
     </div>
     </form>
 </body>
 <script>
+    console.log(typeof $.query.get("StartTime"));
     function getWidth(percent) {
         //return document.body.clientWidth * percent ;
         return $(".main-r").width() * percent;
@@ -138,12 +143,30 @@
                     );
                 };
             };
+            if ($.query.get("StartTime") != true && $.query.get("StartTime") != "true") {
+                $("#sea_start").datebox('setValue', $.query.get("StartTime"));
+            };
+            if ($.query.get("EndTime") != true && $.query.get("EndTime") != "true") {
+                $("#sea_end").datebox('setValue', $.query.get("EndTime"));
+            };
+            if ($.query.get("SelectType") != true && $.query.get("SelectType") != "true") {
+                $("#sea_select").val($.query.get("SelectType"));
+            };
+            if ($.query.get("Keyword") != true && $.query.get("Keyword") != "true") {
+                $("#sea_keyword").val($.query.get("Keyword"));
+            };
             columnArray.push(
                     {
                         title: '操作', field: 'xxx', width: getWidth(0.05), align: 'center',
                         formatter: function (value, row, index) {
-                            return "<a href='terminaledit.aspx?guid=" + row.Guid + "&page=" + $('#tb').datagrid('getPager').data("pagination").options.pageNumber + "'>编辑</a>";
-                    }
+                            return "<a href='terminaledit.aspx?guid=" + row.Guid +
+                            "&page=" + $('#tb').datagrid('getPager').data("pagination").options.pageNumber +
+                            "&StartTime=" + $("input[name='sea_start']").val() +
+                            "&EndTime=" + $("input[name='sea_end']").val() +
+                            "&SelectType=" + $("select[name='sea_select']").val() +
+                            "&Keyword=" + $("#sea_keyword").val() +
+                             "'>编辑</a>";
+                        }
                 });
             $('#tb').datagrid({
                 title: '当前位置：终端管理 > 全部终端列表',
@@ -155,13 +178,21 @@
                 queryParams: {
                     action: 'GetTerminalList',
                     easyGrid_Sort: fields,
+                    // StartTime: $.query.get("StartTime") == true && "true" ? "" : $.query.get("StartTime"),
+                    // EndTime: $.query.get("EndTime") == true && "true"  ? "" : $.query.get("EndTime"),
+                    // SelectType: $.query.get("SelectType") == true && "true"  ? "" : $.query.get("SelectType"),
+                    // Keyword: $.query.get("Keyword") == true && "true"  ? "" : $.query.get("Keyword"),
+                    StartTime: String($.query.get("StartTime")) == "true" ? "" : $.query.get("StartTime"),
+                    EndTime: String($.query.get("EndTime")) == "true"  ? "" : $.query.get("EndTime"),
+                    SelectType: String($.query.get("SelectType")) == "true"  ? "" : $.query.get("SelectType"),
+                    Keyword: String($.query.get("Keyword")) == "true"  ? "" : $.query.get("Keyword"),
                     Time: new Date().getTime()
                 },
                 idField: 'Id',
                 fix: false,
                 frozenColumns: [[
 
-                ]],
+                ]], 
                 columns: [columnArray],
                 pagination: true,
                 pageSize: 20,
@@ -230,9 +261,22 @@
                 }
                 ],
                 onLoadSuccess: function () {
+                    //alert($.query.get("Keyword"));
                     var grid = $(".datagrid-toolbar"); //datagrid
                     var date = $("#search-div");
                     grid.append(date);
+                    // if ($.query.get("StartTime") != true && $.query.get("StartTime") != "true") {
+                    //     $("#sea_start").datebox('setValue', $.query.get("StartTime"));
+                    // };
+                    // if ($.query.get("EndTime") != true && $.query.get("EndTime") != "true") {
+                    //     $("#sea_end").datebox('setValue', $.query.get("EndTime"));
+                    // };
+                    // if ($.query.get("SelectType") != true && $.query.get("SelectType") != "true") {
+                    //     $("#sea_select").val($.query.get("SelectType"));
+                    // };
+                    // if ($.query.get("Keyword") != true && $.query.get("Keyword") != "true") {
+                    //     $("#sea_keyword").val($.query.get("Keyword"));
+                    // };
                 }
             });
             var p = $('#tb');
@@ -248,12 +292,16 @@
         }
     });
     function dosearch() {
+        //alert(1);
+        window.location.hash = "StartTime=" + $("input[name='sea_start']").val() + "&EndTime=" + $("input[name='sea_end']").val() + "&SelectType=" + $("select[name='sea_select']").val() + "&Keyword=" + $("#sea_keyword").val();
         if (!/^\s*$/.test($("input[name='sea_start']").val())) {
             if (/^\s*$/.test($("input[name='sea_end']").val())) {
                 alert("请输入结束时间");
                 $("#sea_end").focus();
                 return false;
             } else {
+                //var _host = window.location.host;
+                //history.pushState('','',_host);
                 $("#tb").datagrid("load", {
                     Action: "TerminalSearch",
                     StartTime: $("input[name='sea_start']").val(),
