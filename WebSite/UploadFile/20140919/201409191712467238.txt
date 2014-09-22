@@ -1,1 +1,0 @@
-Foobar%0d%0aAppScanHeader:%20AppScanValue%2f1%2e2%2d3%0d%0aSecondAppScanHeader:%20whatever
