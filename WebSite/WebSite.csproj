@@ -65,6 +65,7 @@
     <Content Include="admin\adminjson.aspx" />
     <Content Include="admin\Export.aspx" />
     <Content Include="admin\fields.aspx" />
+    <Content Include="admin\home.aspx" />
     <Content Include="admin\login.aspx" />
     <Content Include="admin\ManagerAdd.aspx" />
     <Content Include="admin\ManagerList.aspx" />
@@ -406,6 +407,13 @@
     </Compile>
     <Compile Include="admin\fields.aspx.designer.cs">
       <DependentUpon>fields.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

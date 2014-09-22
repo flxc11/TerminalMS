@@ -3,10 +3,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <script type="text/javascript">
-      // If setting document.domain, be sure to do it *before* jQuery is loaded!
-      //document.domain = document.domain.split('.').slice(-2).join('.');
-    </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title><%=HD.Config.UIConfig.SoftName %></title>
     <link rel="stylesheet" href="/css/Global.css" />

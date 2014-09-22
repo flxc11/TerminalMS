@@ -61,8 +61,6 @@
                                     <asp:ListItem>26寸</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
-                        </div>
-                        <div class="control-group">
                             <label for="in-out" class="control-label">屏幕：</label>
                             <div class="controls controls-inline">
                                 <asp:DropDownList ID="Screen" runat="server" CssClass="select1">
@@ -70,6 +68,9 @@
                                     <asp:ListItem>单屏</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
+                        </div>
+                        <div class="control-group">
+                            
                             <label for="in-out" class="control-label">室内外：</label>
                             <div class="controls controls-inline">
                                 <asp:RadioButtonList ID="OutIn" runat="server" RepeatDirection="Horizontal">
@@ -77,8 +78,6 @@
                                     <asp:ListItem Value="1">室外</asp:ListItem>
                                 </asp:RadioButtonList>
                             </div>
-                        </div>
-                        <div class="control-group">
                             <label for="in-out" class="control-label">区域：</label>
                             <div class="controls controls-inline">
                                 <asp:DropDownList ID="Area" runat="server" CssClass="select1">
@@ -100,6 +99,9 @@
                             <div class="controls controls-inline">
                                 <asp:TextBox ID="Location" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入放置地点'"></asp:TextBox>
                             </div>
+                        </div>
+                        <div class="control-group">
+                            
                         </div>
                         <div class="control-group">
                             <label for="in-out" class="control-label">签收：</label>
