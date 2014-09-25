@@ -1,0 +1,4 @@
+D:\工作文件夹\CMS系统\TerminalMS\HD.Framework\bin\Release\HD.Framework.dll
+D:\工作文件夹\CMS系统\TerminalMS\HD.Framework\bin\Release\HD.Framework.pdb
+D:\工作文件夹\CMS系统\TerminalMS\HD.Framework\obj\Release\HD.Framework.dll
+D:\工作文件夹\CMS系统\TerminalMS\HD.Framework\obj\Release\HD.Framework.pdb

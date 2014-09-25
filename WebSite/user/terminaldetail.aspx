@@ -52,18 +52,16 @@
                             <div class="controls controls-inline">
                                 <asp:Label ID="MachineSize" runat="server" Text="&nbsp;"></asp:Label>
                             </div>
-                        </div>
-                        <div class="control-group">
                             <label for="in-out" class="control-label">屏幕：</label>
                             <div class="controls controls-inline">
                                 <asp:Label ID="Screen" runat="server" Text="&nbsp;"></asp:Label>
                             </div>
+                        </div>
+                        <div class="control-group">
                             <label for="in-out" class="control-label">室内外：</label>
                             <div class="controls controls-inline">
                                 <asp:Label ID="OutIn" runat="server" Text="&nbsp;"></asp:Label>
                             </div>
-                        </div>
-                        <div class="control-group">
                             <label for="in-out" class="control-label">区域：</label>
                             <div class="controls controls-inline">
                                 <asp:Label ID="Area" runat="server" Text="&nbsp;"></asp:Label>
@@ -82,18 +80,16 @@
                             <div class="controls controls-inline">
                                 <asp:Label ID="OpenTime" runat="server" Text="&nbsp;"></asp:Label>
                             </div>
-                        </div>
-                        <div class="control-group">
                             <label for="in-out" class="control-label">时间：</label>
                             <div class="controls controls-inline">
                                 <asp:Label ID="PostTime" runat="server" Text="&nbsp;"></asp:Label>
                             </div>
+                        </div>
+                        <div class="control-group">
                             <label for="in-out" class="control-label">编号：</label>
                             <div class="controls controls-inline">
                                 <asp:Label ID="Numb" runat="server" Text="&nbsp;"></asp:Label>
                             </div>
-                        </div>
-                        <div class="control-group">
                             <label for="in-out" class="control-label">系统：</label>
                             <div class="controls controls-inline">
                                 <asp:Label ID="System" runat="server" Text="&nbsp;"></asp:Label>
@@ -112,8 +108,6 @@
                             <div class="controls controls-inline">
                                 <asp:Label ID="ContentTel" runat="server" Text="&nbsp;"></asp:Label>
                             </div>
-                        </div>
-                        <div class="control-group">
                             <label for="in-out" class="control-label">赞助商：</label>
                             <div class="controls controls-inline">
                                 <asp:Label ID="Sponsor" runat="server" Text="&nbsp;"></asp:Label>
@@ -137,7 +131,7 @@
                         <asp:Repeater ID="scwOthers" runat="server">
                             <ItemTemplate>
                                 <div class="control-group">
-                                    <div class="clear1"><img src="<%#Eval("SourceUrl") %>" width="80" height="60"  /><a href="<%#Eval("SourceUrl") %>" target="_blank">点击下载</a></div>
+                                    <div class="clear1"><img src="<%#Eval("SourceUrl") %>" width="80" height="60"  /><a href="<%#Eval("SourceUrl") %>" target="_blank">点击查看</a></div>
                                 </div>
                             </ItemTemplate>
                         </asp:Repeater>

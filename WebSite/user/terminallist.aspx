@@ -52,7 +52,6 @@
     </form>
 </body>
 <script>
-    console.log(typeof $.query.get("StartTime"));
     function getWidth(percent) {
         //return document.body.clientWidth * percent ;
         return $(".main-r").width() * percent;

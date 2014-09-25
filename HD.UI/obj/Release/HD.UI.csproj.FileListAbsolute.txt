@@ -1,0 +1,11 @@
+D:\工作文件夹\CMS系统\TerminalMS\HD.UI\bin\Release\HD.UI.dll
+D:\工作文件夹\CMS系统\TerminalMS\HD.UI\bin\Release\HD.UI.pdb
+D:\工作文件夹\CMS系统\TerminalMS\HD.UI\bin\Release\HD.Config.dll
+D:\工作文件夹\CMS系统\TerminalMS\HD.UI\bin\Release\HD.Framework.dll
+D:\工作文件夹\CMS系统\TerminalMS\HD.UI\bin\Release\HD.Model.dll
+D:\工作文件夹\CMS系统\TerminalMS\HD.UI\bin\Release\HD.Config.pdb
+D:\工作文件夹\CMS系统\TerminalMS\HD.UI\bin\Release\HD.Framework.pdb
+D:\工作文件夹\CMS系统\TerminalMS\HD.UI\bin\Release\HD.Model.pdb
+D:\工作文件夹\CMS系统\TerminalMS\HD.UI\obj\Release\HD.UI.csprojResolveAssemblyReference.cache
+D:\工作文件夹\CMS系统\TerminalMS\HD.UI\obj\Release\HD.UI.dll
+D:\工作文件夹\CMS系统\TerminalMS\HD.UI\obj\Release\HD.UI.pdb

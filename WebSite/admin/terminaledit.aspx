@@ -68,8 +68,6 @@
                                     <asp:ListItem>26寸</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
-                        </div>
-                        <div class="control-group">
                             <label for="in-out" class="control-label">屏幕：</label>
                             <div class="controls controls-inline">
                                 <asp:DropDownList ID="Screen" runat="server" CssClass="select1">
@@ -77,6 +75,8 @@
                                     <asp:ListItem>单屏</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
+                        </div>
+                        <div class="control-group">
                             <label for="in-out" class="control-label">室内外：</label>
                             <div class="controls controls-inline">
                                 <asp:RadioButtonList ID="OutIn" runat="server" RepeatDirection="Horizontal">
@@ -84,8 +84,6 @@
                                     <asp:ListItem Value="1">室外</asp:ListItem>
                                 </asp:RadioButtonList>
                             </div>
-                        </div>
-                        <div class="control-group">
                             <label for="in-out" class="control-label">区域：</label>
                             <div class="controls controls-inline">
                                 <asp:DropDownList ID="Area" runat="server" CssClass="select1">
@@ -128,18 +126,16 @@
                                     <asp:ListItem>9小时</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
-                        </div>
-                        <div class="control-group">
                             <label for="in-out" class="control-label">时间：</label>
                             <div class="controls controls-inline">
                                 <asp:TextBox ID="PostTime" runat="server" CssClass="easyui-datebox app-input" data-options="required:true,missingMessage:'请选择时间',editable:false"></asp:TextBox>
                             </div>
+                        </div>
+                        <div class="control-group">
                             <label for="in-out" class="control-label">编号：</label>
                             <div class="controls controls-inline">
                                 <asp:TextBox ID="Numb" runat="server" CssClass="app-input"></asp:TextBox>
                             </div>
-                        </div>
-                        <div class="control-group">
                             <label for="in-out" class="control-label">系统：</label>
                             <div class="controls controls-inline">
                                 <asp:DropDownList ID="System" runat="server" CssClass="select1">
@@ -161,8 +157,6 @@
                             <div class="controls controls-inline">
                                 <asp:TextBox ID="ContentTel" runat="server" CssClass="app-input"></asp:TextBox>
                             </div>
-                        </div>
-                        <div class="control-group">
                             <label for="in-out" class="control-label">赞助商：</label>
                             <div class="controls controls-inline">
                                 <asp:TextBox ID="Sponsor" runat="server" CssClass="app-input"></asp:TextBox>
@@ -171,13 +165,13 @@
                         <div class="control-group">
                             <label for="in-out" class="control-label">转移记录：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="Recores" runat="server" CssClass="app-input" Height="200px" TextMode="MultiLine" Width="600px"></asp:TextBox>
+                                <asp:TextBox ID="Recores" runat="server" CssClass="app-input" Height="100px" TextMode="MultiLine" Width="600px"></asp:TextBox>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="in-out" class="control-label">备注：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="Remark" runat="server" CssClass="app-input" Height="200px" TextMode="MultiLine" Width="600px"></asp:TextBox>
+                                <asp:TextBox ID="Remark" runat="server" CssClass="app-input" Height="100px" TextMode="MultiLine" Width="600px"></asp:TextBox>
                             </div>
                         </div>
                         <div class="control-group">
@@ -190,7 +184,7 @@
                                     <div class="controls controls-inline">
                                         <input type="file" class="input fl easyui-validatebox" id ="<%#Eval("SourceType") %>"  name="<%#Eval("SourceType") %>" />
                                     </div>
-                                    <div class="clear1"><img src="<%#Eval("SourceUrl") %>" width="80" height="60"  /><a href="<%#Eval("SourceUrl") %>" target="_blank">点击下载</a></div>
+                                    <div class="clear1"><img src="<%#Eval("SourceUrl") %>" width="80" height="60"  /><a href="<%#Eval("SourceUrl") %>" target="_blank">点击查看</a></div>
                                 </div>
                             </ItemTemplate>
                         </asp:Repeater>

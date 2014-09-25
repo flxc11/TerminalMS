@@ -54,7 +54,7 @@ namespace WebSite.user
                 CookieHelper.WriteCookie(UIConfig.UserCookieName, info, UIConfig.Expires);
 
 
-                Response.Redirect("terminallist.aspx");
+                Response.Redirect("home.aspx");
             }
             else
             {

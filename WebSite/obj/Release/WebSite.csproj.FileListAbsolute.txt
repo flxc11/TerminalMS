@@ -1,0 +1,16 @@
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\WebSite.dll.config
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\WebSite.dll
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\WebSite.pdb
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\HD.Config.dll
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\HD.Data.dll
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\HD.Framework.dll
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\HD.Model.dll
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\HD.UI.dll
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\HD.Config.pdb
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\HD.Data.pdb
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\HD.Framework.pdb
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\HD.Model.pdb
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\HD.UI.pdb
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\obj\Release\WebSite.csprojResolveAssemblyReference.cache
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\obj\Release\WebSite.dll
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\obj\Release\WebSite.pdb

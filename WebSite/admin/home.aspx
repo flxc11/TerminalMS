@@ -32,19 +32,25 @@
     </div>
     <div class="main-r">
         <div class="terminal-title" style="margin-top: 30px;">汇总：</div>
-        <%=str%>
+        <div class="out-btn-info">
+            <%=str%>
+        </div>
         <div class="terminal-title">按县市区：</div>
-        <asp:Repeater ID="rptArea" runat="server">
-            <ItemTemplate>
-                <a href="terminallist.aspx?SelectType=Area&Keyword=<%#Eval("Area") %>"><div class="btn-info"><%#Eval("Area") %> (<%#Eval("acount") %>)</div></a>
-            </ItemTemplate>
-        </asp:Repeater>
+        <div class="out-btn-info">
+            <asp:Repeater ID="rptArea" runat="server">
+                <ItemTemplate>
+                    <a href="terminallist.aspx?SelectType=Area&Keyword=<%#Eval("Area") %>"><div class="btn-info"><%#Eval("Area") %> (<%#Eval("acount") %>)</div></a>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
         <div class="terminal-title">按设备厂商：</div>
-        <asp:Repeater ID="rptFactory" runat="server">
-            <ItemTemplate>
-                <a href="terminallist.aspx?SelectType=Manufacturer&Keyword=<%#Eval("ManuFacturer") %>"><div class="btn-info"><%#Eval("ManuFacturer") %> (<%#Eval("acount") %>)</div></a>
-            </ItemTemplate>
-        </asp:Repeater>
+        <div class="out-btn-info">
+            <asp:Repeater ID="rptFactory" runat="server">
+                <ItemTemplate>
+                    <a href="terminallist.aspx?SelectType=Manufacturer&Keyword=<%#Eval("ManuFacturer") %>"><div class="btn-info"><%#Eval("ManuFacturer") %> (<%#Eval("acount") %>)</div></a>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
     </div>
     </form>
 </body>

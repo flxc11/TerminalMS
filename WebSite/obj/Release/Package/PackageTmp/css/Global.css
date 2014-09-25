@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS-Reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,img,form{padding:0; margin:0;}
+table,td,tr,th{ font-size:12px}
+li{list-style-type:none;list-style:none; }
+img{vertical-align:top;border:0;}
+ol,ul {list-style:none;}
+h1,h2,h3,h4,h5,h6 {font-weight:normal; font-style:normal; font-size:12px}
+address,cite,code,em,th {font-weight:normal; font-style:normal;}
+/* 通用样式 */
+body{height:100%;font-family: "微软雅黑", "Microsoft YaHei", "宋体", Arial; font-size:12px;
+    color: #6d6c6c;
+    line-height: 24px;
+}
+a {text-decoration:none; blr:expression(this.onFocus=this.blur()); color:#6d6c6c; outline-style:none;}
+a:hover { text-decoration: none; color:#ff8700;}
+a:focus { -moz-outline-style: none; } /*针对firefox*/
+.fl{ float:left;}
+.fr{ float:right;}
+.clearfix:before,.clearfix:after{content:''; display:table;}.clearfix:after{clear:both;}.clearfix{*zoom:1;}
+.clear { clear: both; height: 0; overflow: hidden;}
+.clear1 { clear: both; overflow: hidden; padding: 15px 0 15px 120px;}
