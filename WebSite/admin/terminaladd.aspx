@@ -47,7 +47,7 @@
                             <div class="controls controls-inline">
                                 <asp:DropDownList ID="Manufacturer" runat="server" CssClass="select1">
                                     <asp:ListItem>温州智景</asp:ListItem>
-                                    <asp:ListItem>杭州信怡</asp:ListItem>
+                                    <asp:ListItem>杭州信颐</asp:ListItem>
                                     <asp:ListItem>上海高清</asp:ListItem>
                                     <asp:ListItem>顺泰</asp:ListItem>
                                     <asp:ListItem>冠众</asp:ListItem>
@@ -154,6 +154,12 @@
                             <label for="in-out" class="control-label">赞助商：</label>
                             <div class="controls controls-inline">
                                 <asp:TextBox ID="Sponsor" runat="server" CssClass="app-input"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="in-out" class="control-label">所属类别：</label>
+                            <div class="controls controls-inline">
+                                <asp:DropDownList ID="ddlClass" runat="server" CssClass="select1"></asp:DropDownList>
                             </div>
                         </div>
                         <div class="control-group">

@@ -100,15 +100,48 @@
     <Content Include="images\iconmanager.png" />
     <Content Include="images\iconsquare.jpg" />
     <Content Include="images\logos.png" />
+    <Content Include="js\adapters\standalone-framework.js" />
+    <Content Include="js\adapters\standalone-framework.src.js" />
     <Content Include="js\cnvp.js" />
     <Content Include="js\easyui-lang-zh_CN.js" />
     <Content Include="js\encrypt.js" />
+    <Content Include="js\highcharts-3d.js" />
+    <Content Include="js\highcharts-3d.src.js" />
+    <Content Include="js\highcharts-all.js" />
+    <Content Include="js\highcharts-more.js" />
+    <Content Include="js\highcharts-more.src.js" />
+    <Content Include="js\highcharts.js" />
+    <Content Include="js\highcharts.src.js" />
     <Content Include="js\JqPrintArea.js" />
     <Content Include="js\jquery.ba-hashchange.js" />
     <Content Include="js\jquery.easyui.min.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jQuery.query.js" />
+    <Content Include="js\modules\canvas-tools.js" />
+    <Content Include="js\modules\canvas-tools.src.js" />
+    <Content Include="js\modules\data.js" />
+    <Content Include="js\modules\data.src.js" />
+    <Content Include="js\modules\drilldown.js" />
+    <Content Include="js\modules\drilldown.src.js" />
+    <Content Include="js\modules\exporting.js" />
+    <Content Include="js\modules\exporting.src.js" />
+    <Content Include="js\modules\funnel.js" />
+    <Content Include="js\modules\funnel.src.js" />
+    <Content Include="js\modules\heatmap.js" />
+    <Content Include="js\modules\heatmap.src.js" />
+    <Content Include="js\modules\no-data-to-display.js" />
+    <Content Include="js\modules\no-data-to-display.src.js" />
+    <Content Include="js\modules\solid-gauge.js" />
+    <Content Include="js\modules\solid-gauge.src.js" />
+    <Content Include="js\themes\dark-blue.js" />
+    <Content Include="js\themes\dark-green.js" />
+    <Content Include="js\themes\dark-unica.js" />
+    <Content Include="js\themes\gray.js" />
+    <Content Include="js\themes\grid-light.js" />
+    <Content Include="js\themes\grid.js" />
+    <Content Include="js\themes\sand-signika.js" />
+    <Content Include="js\themes\skies.js" />
     <Content Include="themes\black\accordion.css" />
     <Content Include="themes\black\calendar.css" />
     <Content Include="themes\black\combo.css" />
@@ -402,6 +435,7 @@
     <Content Include="user\fields.aspx" />
     <Content Include="user\home.aspx" />
     <Content Include="user\login.aspx" />
+    <Content Include="user\mobilehome.aspx" />
     <Content Include="user\reg.aspx" />
     <Content Include="user\terminaldetail.aspx" />
     <Content Include="user\terminallist.aspx" />
@@ -552,6 +586,13 @@
     </Compile>
     <Compile Include="user\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\mobilehome.aspx.cs">
+      <DependentUpon>mobilehome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\mobilehome.aspx.designer.cs">
+      <DependentUpon>mobilehome.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\reg.aspx.cs">
       <DependentUpon>reg.aspx</DependentUpon>

@@ -119,7 +119,24 @@
                             }
                         }
                     );
-                } else if(arrfields[i] == "PostTime") {
+                } else if (arrfields[i] == "ClassID") {
+                    columnArray.push(
+                        {
+                            title: arrexplains[i], field: arrfields[i], width: getWidth(0.05), align: 'center',
+                            formatter: function (value, row, index) {
+                                if (row.ClassID == "1") {
+                                    return "A级商业圈";
+                                } else if (row.ClassID == "2") {
+                                    return "B级商业圈";
+                                } else if (row.ClassID == "3") {
+                                    return "社区街道";
+                                } else {
+                                    return "机关单位";
+                                };
+                            }
+                        }
+                    );
+                } else if (arrfields[i] == "PostTime") {
                     columnArray.push(
                         { title: arrexplains[i], field: arrfields[i], width: getWidth(0.05), align: 'center',
                             formatter: function (value, row, index) {
@@ -132,7 +149,14 @@
                         {
                             title: arrexplains[i], field: arrfields[i], width: getWidth(0.05), align: 'center',
                             formatter: function (value, row, index) {
-                                return "<a href='terminaledit.aspx?guid=" + row.Guid + "&page=" + $('#tb').datagrid('getPager').data("pagination").options.pageNumber + "'>" + value + "</a>";
+                                //return "<a href='terminaledit.aspx?guid=" + row.Guid + "&page=" + $('#tb').datagrid('getPager').data("pagination").options.pageNumber + "'>" + value + "</a>";
+                                return "<a href='terminaledit.aspx?guid=" + row.Guid +
+                                "&page=" + $('#tb').datagrid('getPager').data("pagination").options.pageNumber +
+                                "&StartTime=" + $("input[name='sea_start']").val() +
+                                "&EndTime=" + $("input[name='sea_end']").val() +
+                                "&SelectType=" + $("select[name='sea_select']").val() +
+                                "&Keyword=" + $("#sea_keyword").val() +
+                                 "'>" + value + "</a>";
                             }
                         }
                     );

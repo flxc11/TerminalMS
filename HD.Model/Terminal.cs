@@ -333,5 +333,22 @@ namespace HD.Model
                 this._Sponsor = value;
             }
         }
+        private string _ClassID = null;
+        /// <summary>  
+        /// Class  
+        /// </summary>  
+        /// <returns></returns>  
+        [Description("ClassID")]
+        public string ClassID
+        {
+            get
+            {
+                return this._ClassID;
+            }
+            set
+            {
+                this._ClassID = value;
+            }
+        }
     }
 }

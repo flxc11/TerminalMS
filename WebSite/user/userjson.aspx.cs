@@ -53,6 +53,9 @@ namespace WebSite.user
                 case "GetFields":
                     GetFields();
                     break;
+                case "GetMonthTer":
+                    this.GetMonthTer();
+                    break;
                 default:
                     break;
             }
@@ -77,7 +80,7 @@ namespace WebSite.user
             string pageSize = Request.Params["Rows"];
             if (string.IsNullOrEmpty(pageSize) || !Public.IsNumber(pageSize))
             {
-                pageIndex = "20";
+                pageSize = "20";
             }
             sqlWhere = UIConfig.Prefix + "Terminal where 1=1 ";
             if (!string.IsNullOrEmpty(_startTime) && !string.IsNullOrEmpty(_endTime))
@@ -107,6 +110,25 @@ namespace WebSite.user
                     else if (_keyword == "已签收")
                     {
                         sqlWhere += " and SignIn=1";
+                    }
+                }
+                else if (_selectType == "ClassID")
+                {
+                    if (_keyword == "A级商业圈")
+                    {
+                        sqlWhere += " and ClassID=1";
+                    }
+                    else if (_keyword == "B级商业圈")
+                    {
+                        sqlWhere += " and ClassID=2";
+                    }
+                    else if (_keyword == "社区街道")
+                    {
+                        sqlWhere += " and ClassID=3";
+                    }
+                    else if (_keyword == "机关单位")
+                    {
+                        sqlWhere += " and ClassID=4";
                     }
                 }
                 else
@@ -313,6 +335,25 @@ namespace WebSite.user
                         sqlWhere += " and SignIn=1";
                     }
                 }
+                else if (_selectType == "ClassID")
+                {
+                    if (_keyword == "A级商业圈")
+                    {
+                        sqlWhere += " and ClassID=1";
+                    }
+                    else if (_keyword == "B级商业圈")
+                    {
+                        sqlWhere += " and ClassID=2";
+                    }
+                    else if (_keyword == "社区街道")
+                    {
+                        sqlWhere += " and ClassID=3";
+                    }
+                    else if (_keyword == "机关单位")
+                    {
+                        sqlWhere += " and ClassID=4";
+                    }
+                }
                 else
                 {
                     sqlWhere += " and " + _selectType + " like '%" + _keyword + "%'";
@@ -381,6 +422,38 @@ namespace WebSite.user
                 Response.Write("{\"returnval\":\"0\"}");
             }
             Response.End();
+        }
+        #endregion
+
+        #region  根据月份获取当月的安装情况并反馈到首页柱状图中
+        private void GetMonthTer()
+        {
+            string strCnt = string.Empty;
+            string yearMonth = Request.Params["yearMonth"];
+            if (!string.IsNullOrEmpty(yearMonth))
+            {
+                string[] dates = yearMonth.Split('-');
+                int daylen = DateTime.DaysInMonth(Convert.ToInt32(dates[0]), Convert.ToInt32(dates[1]));
+                DataTable dt = HD.Framework.DataAccess.DataFactory.GetInstance().ExecuteTable("select SUBSTRING(Convert(varchar(100), PostTime, 23),1,10) as ptime, count(*) as ccount from wzrb_Terminal where SUBSTRING(Convert(varchar(100), PostTime, 23),1,10) like '" + yearMonth + "%' group by SUBSTRING(Convert(varchar(100), PostTime, 23),1,10)");
+                for (int i = 1; i <= daylen; i++)
+                {
+                    string temp = "null,";
+                    string newDay = "0" + i.ToString();
+                    string newDay1 = newDay.Substring(newDay.Length - 2);
+                    string newDate = yearMonth + "-" + newDay1;
+                    for (int j = 0; j < dt.Rows.Count; j++)
+                    {
+                        if (newDate == dt.Rows[j]["ptime"].ToString())
+                        {
+                            temp = dt.Rows[j]["ccount"] + ",";
+                        }
+                    }
+                    strCnt += temp;
+                }
+                strCnt = strCnt.Substring(0, strCnt.Length - 1);
+                Response.Write("{\"returnval\":\"1\",\"date\":\"" + strCnt + "\"}");
+                Response.End();
+            }
         }
         #endregion
     }

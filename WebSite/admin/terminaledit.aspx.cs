@@ -65,8 +65,19 @@ namespace WebSite.admin
                         scwOthers.DataSource = dt;
                         scwOthers.DataBind();
                     }
+
+                    //类别绑定
+
+                    HD.Data.Common common = new HD.Data.Common();
+                    ddlClass.Items.Clear();
+                    ddlClass.DataSource = common.TClass();
+                    ddlClass.DataTextField = "ClassName";
+                    ddlClass.DataValueField = "ID";
+                    ddlClass.DataBind();
+                    ddlClass.SelectedValue = terminal.ClassID;
                 }
                 #endregion
+
             }
         }
 
@@ -87,6 +98,7 @@ namespace WebSite.admin
             HD.Model.Terminal terminal = new HD.Model.Terminal();
             HD.Model.Source source = new HD.Model.Source();
 
+            terminal.ClassID = ddlClass.SelectedValue;
             //修改终端信息
             terminal.UpdateModel();
             terminal.Guid = terminalGuid;

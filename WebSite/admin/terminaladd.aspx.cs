@@ -20,6 +20,15 @@ namespace WebSite.admin
                     Save();
                     break;
             }
+
+            //类别绑定
+
+            HD.Data.Common common = new HD.Data.Common();
+            ddlClass.Items.Clear();
+            ddlClass.DataSource = common.TClass();
+            ddlClass.DataTextField = "ClassName";
+            ddlClass.DataValueField = "ID";
+            ddlClass.DataBind();
         }
 
         #region 添加终端信息
@@ -32,7 +41,7 @@ namespace WebSite.admin
             HD.Model.Terminal terminal = new HD.Model.Terminal();
             HD.Model.Source source = new HD.Model.Source();
 
-            
+            terminal.ClassID = ddlClass.SelectedValue;
             terminal.UpdateModel();
             terminal.Guid = Public.GetGuID;
 

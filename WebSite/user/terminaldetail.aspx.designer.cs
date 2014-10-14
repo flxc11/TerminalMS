@@ -22,40 +22,40 @@ namespace WebSite.user {
         protected global::System.Web.UI.HtmlControls.HtmlForm ff;
         
         /// <summary>
-        /// Manufacturer 控件。
+        /// Location 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Manufacturer;
+        protected global::System.Web.UI.WebControls.Label Location;
         
         /// <summary>
-        /// MachineSize 控件。
+        /// Address 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MachineSize;
+        protected global::System.Web.UI.WebControls.Label Address;
         
         /// <summary>
-        /// Screen 控件。
+        /// PostTime 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Screen;
+        protected global::System.Web.UI.WebControls.Label PostTime;
         
         /// <summary>
-        /// OutIn 控件。
+        /// ContentTel 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label OutIn;
+        protected global::System.Web.UI.WebControls.Label ContentTel;
         
         /// <summary>
         /// Area 控件。
@@ -67,13 +67,13 @@ namespace WebSite.user {
         protected global::System.Web.UI.WebControls.Label Area;
         
         /// <summary>
-        /// Location 控件。
+        /// Manufacturer 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Location;
+        protected global::System.Web.UI.WebControls.Label Manufacturer;
         
         /// <summary>
         /// SignIn 控件。
@@ -94,13 +94,13 @@ namespace WebSite.user {
         protected global::System.Web.UI.WebControls.Label OpenTime;
         
         /// <summary>
-        /// PostTime 控件。
+        /// Screen 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PostTime;
+        protected global::System.Web.UI.WebControls.Label Screen;
         
         /// <summary>
         /// Numb 控件。
@@ -130,22 +130,22 @@ namespace WebSite.user {
         protected global::System.Web.UI.WebControls.Label Stituation;
         
         /// <summary>
-        /// Address 控件。
+        /// MachineSize 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Address;
+        protected global::System.Web.UI.WebControls.Label MachineSize;
         
         /// <summary>
-        /// ContentTel 控件。
+        /// OutIn 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ContentTel;
+        protected global::System.Web.UI.WebControls.Label OutIn;
         
         /// <summary>
         /// Sponsor 控件。
@@ -155,6 +155,15 @@ namespace WebSite.user {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Sponsor;
+        
+        /// <summary>
+        /// ClassID 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ClassID;
         
         /// <summary>
         /// Recores 控件。

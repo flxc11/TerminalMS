@@ -53,8 +53,16 @@ namespace WebSite.user
                 //创建登录状态
                 CookieHelper.WriteCookie(UIConfig.UserCookieName, info, UIConfig.Expires);
 
-
-                Response.Redirect("home.aspx");
+                IsPhoneAttribute isphone = new IsPhoneAttribute();
+                if (!isphone.OnActionExecuting())
+                {
+                    Response.Redirect("mobilehome.aspx");
+                }
+                else
+                {
+                    Response.Redirect("home.aspx");
+                }
+                
             }
             else
             {

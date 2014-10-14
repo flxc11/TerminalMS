@@ -63,6 +63,7 @@
     <Compile Include="Helper\ConfigHelper.cs" />
     <Compile Include="Helper\CookieHelper.cs" />
     <Compile Include="Helper\HashTableHelper.cs" />
+    <Compile Include="Helper\IsPhoneAttribute.cs" />
     <Compile Include="Helper\JsonHelper.cs" />
     <Compile Include="Helper\LogHelper.cs" />
     <Compile Include="Helper\RequestHelper.cs" />

@@ -48,6 +48,22 @@ namespace WebSite.user
                     {
                         SignIn.Text = "未签收";
                     }
+                    if (terminal.ClassID == "1")
+                    {
+                        ClassID.Text = "A级商业区";
+                    }
+                    else if (terminal.ClassID == "2")
+                    {
+                        ClassID.Text = "B级商业区";
+                    }
+                    else if (terminal.ClassID == "3")
+                    {
+                        ClassID.Text = "社区街道";
+                    }
+                    else if (terminal.ClassID == "4")
+                    {
+                        ClassID.Text = "机关单位";
+                    }
                     PostTime.Text = Convert.ToDateTime(terminal.PostTime).ToString("yyyy-MM-dd");
 
                     //图片附件
