@@ -4,11 +4,11 @@ using System.ComponentModel;
 using HD.Framework.DataAccess;
 using HD.Framework.Utils;
 
-namespace CNVP.Model
+namespace HD.Model
 {
     [Description("客户表")]
-    [Key("Id")]
-    public class wzrb_Client : DbUtils<wzrb_Client>
+    [Key("ClientGuid")]
+    public class Client : DbUtils<Client>
     {
         private int? _Id = null;
         /// <summary>  
@@ -27,21 +27,21 @@ namespace CNVP.Model
                 this._Id = value;
             }
         }
-        private string _Guid = null;
+        private string _ClientGuid = null;
         /// <summary>  
         /// Guid  
         /// </summary>  
         /// <returns></returns>  
-        [Description("Guid")]
-        public string Guid
+        [Description("ClientGuid")]
+        public string ClientGuid
         {
             get
             {
-                return this._Guid;
+                return this._ClientGuid;
             }
             set
             {
-                this._Guid = value;
+                this._ClientGuid = value;
             }
         }
         private string _ClientName = null;

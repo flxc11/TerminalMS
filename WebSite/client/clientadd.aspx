@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cliendadd.aspx.cs" Inherits="WebSite.client.cliendadd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="clientadd.aspx.cs" Inherits="WebSite.client.clientadd" %>
 
 <!DOCTYPE html>
 
@@ -17,7 +17,7 @@
     <script src="/js/cnvp.js"></script>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="ff" name="ff" action="?Action=Save" runat="server">
     <div class="wrap-header">
         <div class="header">
             <div class="lg-info">
@@ -45,7 +45,7 @@
                         <div class="control-group">
                             <label for="in-out" class="control-label">客户名称：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="ClientName" runat="server" CssClass="app-input"></asp:TextBox>
+                                <asp:TextBox ID="ClientName" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入客户名称'"></asp:TextBox>
                             </div>
                             <label for="in-out" class="control-label">客户方经办人：</label>
                             <div class="controls controls-inline">
@@ -61,6 +61,8 @@
                             <div class="controls controls-inline">
                                 <asp:TextBox ID="Tel" runat="server" CssClass="app-input"></asp:TextBox>
                             </div>
+                        </div>
+                        <div class="control-group">
                             <label for="in-out" class="control-label">手机：</label>
                             <div class="controls controls-inline">
                                 <asp:TextBox ID="Mobile" runat="server" CssClass="app-input"></asp:TextBox>
@@ -72,10 +74,10 @@
                                 <asp:TextBox ID="Remark" runat="server" CssClass="app-input" Height="100px" TextMode="MultiLine" Width="600px"></asp:TextBox>
                             </div>
                         </div>
-                    </div>
-                    <div class="control-group">
-                        <a href="javascript:void(0)" class="btn-submit" onclick="submitForm()">保存</a>
-                        <a href="javascript:void(0)" class="btn-submit" onclick="javascript:history.go(-1)">返　　回</a>
+                        <div class="control-group">
+                            <a href="javascript:void(0)" class="btn-submit" onclick="submitForm()" style="margin-left:120px;">保存</a>
+                            <a href="javascript:void(0)" class="btn-submit" onclick="javascript:history.go(-1)">返　　回</a>
+                        </div>
                     </div>
                 </div>
 			</div>
@@ -83,4 +85,17 @@
     </div>
     </form>
 </body>
+<script>
+    function submitForm(action) {
+        if ($("#ff").form("validate")) {
+            function doSubmit() {
+                $("#ff").attr("action", "clientadd.aspx?Action=Save");
+                $("#ff").submit();
+            }
+            setTimeout(doSubmit, 0);
+        } else {
+            $.messager.alert("信息", "信息填写不规范");
+        }
+    }
+</script>
 </html>

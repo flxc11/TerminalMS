@@ -63,6 +63,8 @@
   <ItemGroup>
     <Content Include="admin\admininfo.aspx" />
     <Content Include="admin\adminjson.aspx" />
+    <Content Include="admin\Client\ClientAdd.aspx" />
+    <Content Include="admin\Client\ClientList.aspx" />
     <Content Include="admin\Export.aspx" />
     <Content Include="admin\fields.aspx" />
     <Content Include="admin\home.aspx" />
@@ -74,7 +76,7 @@
     <Content Include="admin\terminallist.aspx" />
     <Content Include="admin\userlist.aspx" />
     <Content Include="bin\NPOI.dll" />
-    <Content Include="client\cliendadd.aspx" />
+    <Content Include="client\clientadd.aspx" />
     <Content Include="client\clientcenter.aspx" />
     <Content Include="client\clientjson.aspx" />
     <Content Include="client\clientlist.aspx" />
@@ -460,6 +462,20 @@
     <Compile Include="admin\adminjson.aspx.designer.cs">
       <DependentUpon>adminjson.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\Client\ClientAdd.aspx.cs">
+      <DependentUpon>ClientAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Client\ClientAdd.aspx.designer.cs">
+      <DependentUpon>ClientAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Client\ClientList.aspx.cs">
+      <DependentUpon>ClientList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Client\ClientList.aspx.designer.cs">
+      <DependentUpon>ClientList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\Export.aspx.cs">
       <DependentUpon>Export.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -530,12 +546,12 @@
     <Compile Include="admin\userlist.aspx.designer.cs">
       <DependentUpon>userlist.aspx</DependentUpon>
     </Compile>
-    <Compile Include="client\cliendadd.aspx.cs">
-      <DependentUpon>cliendadd.aspx</DependentUpon>
+    <Compile Include="client\clientadd.aspx.cs">
+      <DependentUpon>clientadd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="client\cliendadd.aspx.designer.cs">
-      <DependentUpon>cliendadd.aspx</DependentUpon>
+    <Compile Include="client\clientadd.aspx.designer.cs">
+      <DependentUpon>clientadd.aspx</DependentUpon>
     </Compile>
     <Compile Include="client\clientcenter.aspx.cs">
       <DependentUpon>clientcenter.aspx</DependentUpon>
@@ -661,6 +677,9 @@
       <Project>{2fe6ede9-f204-4572-bd22-5e999610aaa7}</Project>
       <Name>HD.UI</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="admin\Accept\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

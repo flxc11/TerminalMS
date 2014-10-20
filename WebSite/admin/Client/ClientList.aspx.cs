@@ -1,14 +1,13 @@
-﻿using HD.UI;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebSite.client
+namespace WebSite.admin.Client
 {
-    public partial class cliendadd : AdminPage
+    public partial class ClientList : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
