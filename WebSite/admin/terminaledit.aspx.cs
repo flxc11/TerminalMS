@@ -13,7 +13,7 @@ namespace WebSite.admin
 {
     public partial class terminaledit : AdminPage
     {
-        public string terminalGuid, terminalId, terPage, startTime, endTime, selectType, keyWord = string.Empty;
+        public string terminalGuid, terminalId, terPage, startTime, endTime, selectType, keyWord, _locationCoordinate = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             string Action = Request.Params["Action"];
@@ -42,6 +42,7 @@ namespace WebSite.admin
                     terminal.SetWebControls(this.Page);
 
                     terminalId = terminal.Id.ToString();
+                    _locationCoordinate = terminal.LocationCoordinate;
                     Manufacturer.SelectedValue = terminal.Manufacturer;
                     MachineSize.SelectedValue = terminal.MachineSize;
                     Screen.SelectedValue = terminal.Screen;
@@ -53,10 +54,11 @@ namespace WebSite.admin
                     {
                         SignIn.SelectedValue = terminal.SignIn.ToString();
                     }
+                    Status.SelectedIndex = Convert.ToInt32(terminal.Status);
+                    //Status.SelectedValue = terminal.Status.ToString();
                     PostTime.Text = Convert.ToDateTime(terminal.PostTime).ToString("yyyy-MM-dd");
-
-                    //图片附件
                     
+                    //图片附件
 
                     DataTable dt = DataFactory.GetInstance().
                     ExecuteTable("select * from wzrb_source where TerGuid='" + guid + "'");

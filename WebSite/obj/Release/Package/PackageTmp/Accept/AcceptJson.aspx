@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AcceptJson.aspx.cs" Inherits="WebSite.Accept.AcceptJson" %>

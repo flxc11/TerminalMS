@@ -112,6 +112,17 @@ namespace WebSite.user
                         sqlWhere += " and SignIn=1";
                     }
                 }
+                else if (_selectType == "Status")
+                {
+                    if (_keyword == "已安装")
+                    {
+                        sqlWhere += " and Status=1";
+                    }
+                    else if (_keyword == "待安装")
+                    {
+                        sqlWhere += " and Status=0";
+                    }
+                }
                 else if (_selectType == "ClassID")
                 {
                     if (_keyword == "A级商业圈")
@@ -142,7 +153,7 @@ namespace WebSite.user
             //string strSql = "select  * from " + UIConfig.Prefix + "Application order by createtime desc";
 
             DataTable dt = DataFactory.GetInstance().ExecutePage("*",
-                sqlWhere, "Id", "Id desc", Convert.ToInt32(pageIndex), Convert.ToInt32(pageSize), ref recordCount, ref pageCount);
+                sqlWhere, "Id", "PostTime desc", Convert.ToInt32(pageIndex), Convert.ToInt32(pageSize), ref recordCount, ref pageCount);
             string easyGrid_Sort = Request.Params["easyGrid_Sort"];
 
             string str = JsonHelper.EasyGridTable(dt, easyGrid_Sort, recordCount);
@@ -333,6 +344,17 @@ namespace WebSite.user
                     else if (_keyword == "已签收")
                     {
                         sqlWhere += " and SignIn=1";
+                    }
+                }
+                else if (_selectType == "Status")
+                {
+                    if (_keyword == "已安装")
+                    {
+                        sqlWhere += " and Status=1";
+                    }
+                    else if (_keyword == "待安装")
+                    {
+                        sqlWhere += " and Status=0";
                     }
                 }
                 else if (_selectType == "ClassID")

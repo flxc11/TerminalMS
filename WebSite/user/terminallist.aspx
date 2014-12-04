@@ -59,6 +59,7 @@
     //var fields = "Id,Guid,IO,ShipName,Saillings,Operator,StartPort,ArrivedTime,WorkBerth,AppState";
     var fields = "";
     var explains = "";
+    var _title = '当前位置：终端管理 > 全部终端列表';
 
     //获取个人字段配置信息
     $.ajax({
@@ -130,8 +131,10 @@
                                     return "B级商业圈";
                                 } else if (row.ClassID == "3") {
                                     return "社区街道";
-                                } else {
+                                } else if (row.ClassID == "4") {
                                     return "机关单位";
+                                } else {
+                                    return "公共场所";
                                 };
                             }
                         }
@@ -141,6 +144,19 @@
                         { title: arrexplains[i], field: arrfields[i], width: getWidth(0.05), align: 'center',
                             formatter: function (value, row, index) {
                                 return Common.TimeFormatter(row.PostTime,row,index);
+                            }
+                        }
+                    );
+                } else if (arrfields[i] == "Status") {
+                    columnArray.push(
+                        {
+                            title: arrexplains[i], field: arrfields[i], width: getWidth(0.05), align: 'center',
+                            formatter: function (value, row, index) {
+                                if (row.Status == "1") {
+                                    return "已安装";
+                                } else {
+                                    return "待安装";
+                                }
                             }
                         }
                     );
@@ -171,7 +187,13 @@
                 $("#sea_select").val($.query.get("SelectType"));
             };
             if ($.query.get("Keyword") != true && $.query.get("Keyword") != "true") {
+                console.log($.query.get("SelectType"));
                 $("#sea_keyword").val($.query.get("Keyword"));
+                if ($.query.get("Keyword") == '已安装') {
+                    _title = '当前位置：终端管理 > 已安装终端列表';
+                } else if ($.query.get("Keyword") == '待安装') {
+                    _title = '当前位置：终端管理 > 待安装终端列表';
+                }
             };
             columnArray.push(
                     {
@@ -187,7 +209,7 @@
                         }
                 });
             $('#tb').datagrid({
-                title: '当前位置：终端管理 > 全部终端列表',
+                title: _title,
                 width: 'auto',
                 height: 'auto',
                 nowrap: false,

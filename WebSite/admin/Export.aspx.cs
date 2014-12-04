@@ -45,6 +45,17 @@ namespace WebSite.admin
                         }
 
                     }
+                    else if (_selectType == "Status")
+                    {
+                        if (_keyword == "已安装")
+                        {
+                            sqlWhere += " and Status=1";
+                        }
+                        else if (_keyword == "待安装")
+                        {
+                            sqlWhere += " and Status=0";
+                        }
+                    }
                     else if (_selectType == "SignIn")
                     {
                         if (_keyword == "未签收")
@@ -83,6 +94,7 @@ namespace WebSite.admin
                 sheet.GetRow(0).CreateCell(14).SetCellValue("联系人和电话");
                 sheet.GetRow(0).CreateCell(15).SetCellValue("备注");
                 sheet.GetRow(0).CreateCell(16).SetCellValue("赞助商");
+                sheet.GetRow(0).CreateCell(17).SetCellValue("安装状态");
 
                 if (dt != null && dt.Rows.Count > 0)
                 {
@@ -92,7 +104,7 @@ namespace WebSite.admin
                         sheet.GetRow(i + 1).CreateCell(1).SetCellValue(dt.Rows[i]["MachineSize"].ToString());
                         sheet.GetRow(i + 1).CreateCell(2).SetCellValue(dt.Rows[i]["Screen"].ToString());
                         sheet.GetRow(i + 1).CreateCell(3).SetCellValue(dt.Rows[i]["OutIn"].ToString() == "1" ? "室外" : "室内");
-                        sheet.GetRow(i + 1).CreateCell(4).SetCellValue(Convert.ToDateTime(dt.Rows[i]["PostTime"].ToString()).ToString("yyyy-MM-dd"));
+                        sheet.GetRow(i + 1).CreateCell(4).SetCellValue(dt.Rows[i]["PostTime"].ToString() != "" ? Convert.ToDateTime(dt.Rows[i]["PostTime"].ToString()).ToString("yyyy-MM-dd") : "");
                         sheet.GetRow(i + 1).CreateCell(5).SetCellValue(dt.Rows[i]["Location"].ToString());
                         sheet.GetRow(i + 1).CreateCell(6).SetCellValue(SignInState(dt.Rows[i]["SignIn"].ToString()));
                         sheet.GetRow(i + 1).CreateCell(7).SetCellValue(dt.Rows[i]["OpenTime"].ToString());
@@ -105,6 +117,7 @@ namespace WebSite.admin
                         sheet.GetRow(i + 1).CreateCell(14).SetCellValue(dt.Rows[i]["ContentTel"].ToString());
                         sheet.GetRow(i + 1).CreateCell(15).SetCellValue(dt.Rows[i]["Remark"].ToString());
                         sheet.GetRow(i + 1).CreateCell(16).SetCellValue(dt.Rows[i]["Sponsor"].ToString());
+                        sheet.GetRow(i + 1).CreateCell(17).SetCellValue(dt.Rows[i]["Status"].ToString() == "1" ? "已安装" : "待安装");
                     }
                 }
                 workbook.Write(ms);

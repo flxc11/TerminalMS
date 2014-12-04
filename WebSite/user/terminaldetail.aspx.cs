@@ -40,6 +40,14 @@ namespace WebSite.user
                     {
                         OutIn.Text = "室内";
                     }
+                    if (terminal.Status == 1)
+                    {
+                        Status.Text = "已安装";
+                    }
+                    else
+                    {
+                        Status.Text = "待安装";
+                    }
                     if (terminal.SignIn == "1")
                     {
                         SignIn.Text = "已签收";

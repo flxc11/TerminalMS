@@ -129,14 +129,40 @@ html {
         .appli-manag ul li a:hover {
           color: #265a87;
           font-weight: bold; }
-
+.appli-icon2,.appli-set,.appli-zdgl,.appli-zdgl,.appli-grzx,.appli-sld,.appli-yhgl,.appli-khgl {
+  padding-left: 34px;
+}
 .appli-icon1 {
   background: url("../images/iconappli1.png") no-repeat 8px center;
   padding-left: 34px; }
 .appli-icon2 {
-  background: url("../images/iconappli4.jpg") no-repeat 4px center;
-  padding-left: 34px; }
-
+  background: url("../images/iconzdgl.png") no-repeat 4px center;
+  background-size: 19px;
+}
+.appli-set {
+  background: url("../images/iconappliset.png") no-repeat 8px center;
+  background-size: 19px;
+}
+.appli-zdgl {
+  background: url("../images/iconzdgl.png") no-repeat 8px center;
+  background-size: 19px;
+}
+.appli-khgl {
+  background: url("../images/iconkhgl.png") no-repeat 8px center;
+  background-size: 19px;
+}
+.appli-grzx {
+  background: url("../images/icongrzx.png") no-repeat 8px center;
+  background-size: 19px;
+}
+.appli-sld {
+  background: url("../images/iconsld.png") no-repeat 8px center;
+  background-size: 19px;
+}
+.appli-yhgl {
+  background: url("../images/iconyhgl.png") no-repeat 8px center;
+  background-size: 19px;
+}
 /*main-r */
 .main-r {
   _position: relative;
@@ -365,4 +391,128 @@ html {
 .out-btn-info {
     width: 100%;
     overflow: hidden;
+}
+.map-info {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 0 5px;
+  border: 1px solid #999;
+  float: left;
+  margin: 10px 20px 10px 0;
+  font-size: 12px;
+}
+.map-info:hover {
+  border: 1px solid #f60;
+  color: #E4393C;
+  cursor: pointer;
+}
+.terminal-title1 {
+  font-size: 14px;
+  color: #f00;
+  padding-left: 20px;
+  float: left;
+  margin: 10px 0;
+}
+.map-click {
+  border: 1px solid #f60;
+  color: #E4393C;
+  cursor: pointer;
+}
+.map-search {
+  position: absolute;
+  z-index: 1;
+  background: #fff;
+  width:-moz-calc(100% - 100px);
+  width: -webkit-calc(100% - 100px);
+  width: calc(100% - 100px);
+  left: 100px;
+  opacity: 0.7;
+}
+.map-ipt-search {
+  height: 20px;
+  line-height: 20px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.map-up {
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+}
+.accept-input-item {
+  border: 1px solid #dddddd;
+  display: inline-block;
+  height: 18px;
+  padding: 2px;
+  line-height: 18px;
+  color: #555555;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px; 
+}
+.accept-input1 {
+    width: 100px;
+}
+.accept-input2 {
+    width: 150px;
+}
+.accept-input3 {
+    width: 200px;
+}
+.accept-input4 {
+    width: 300px;
+}
+.accept-input5 {
+    width: 50px;
+}
+.accept-input6 {
+    width: 30px;
+}
+.accept-input7 {
+    width: 500px;
+}
+.readonly {
+    background: #BEBEBE;
+    width:30px;
+}
+.ClassTitle {
+    font-size:14px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.divTerminal {
+    overflow: hidden;
+    display: none;
+    width: 830px;
+    padding-left: 20px;
+}
+.divTerminal a {
+    float:left;
+    width:165px;
+    line-height: 30px;
+}
+.span_open {
+    background: url("../images/Folder.gif") no-repeat center center;
+    width:20px;
+    height:30px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.span_close {
+    background: url("../images/FolderOpen.gif") no-repeat center center;
+    width:20px;
+    height:30px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.checkCount {
+    color: red;
+}
+.div-db {
+    display: block;
+}
+.div-dn {
+    display: none;
 }

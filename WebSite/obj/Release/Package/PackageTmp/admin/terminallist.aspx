@@ -59,6 +59,7 @@
     //var fields = "Id,Guid,IO,ShipName,Saillings,Operator,StartPort,ArrivedTime,WorkBerth,AppState";
     var fields = "";
     var explains = "";
+    var _title = '当前位置：终端管理 > 全部终端列表';
 
     //获取个人字段配置信息
     $.ajax({
@@ -119,11 +120,41 @@
                             }
                         }
                     );
-                } else if(arrfields[i] == "PostTime") {
+                } else if (arrfields[i] == "ClassID") {
+                    columnArray.push(
+                        {
+                            title: arrexplains[i], field: arrfields[i], width: getWidth(0.05), align: 'center',
+                            formatter: function (value, row, index) {
+                                if (row.ClassID == "1") {
+                                    return "A级商业圈";
+                                } else if (row.ClassID == "2") {
+                                    return "B级商业圈";
+                                } else if (row.ClassID == "3") {
+                                    return "社区街道";
+                                } else {
+                                    return "机关单位";
+                                };
+                            }
+                        }
+                    );
+                } else if (arrfields[i] == "PostTime") {
                     columnArray.push(
                         { title: arrexplains[i], field: arrfields[i], width: getWidth(0.05), align: 'center',
                             formatter: function (value, row, index) {
                                 return Common.TimeFormatter(row.PostTime,row,index);
+                            }
+                        }
+                    );
+                } else if (arrfields[i] == "Status") {
+                    columnArray.push(
+                        {
+                            title: arrexplains[i], field: arrfields[i], width: getWidth(0.05), align: 'center',
+                            formatter: function (value, row, index) {
+                                if (row.Status == "1") {
+                                    return "已安装";
+                                } else {
+                                    return "待安装";
+                                }
                             }
                         }
                     );
@@ -132,7 +163,14 @@
                         {
                             title: arrexplains[i], field: arrfields[i], width: getWidth(0.05), align: 'center',
                             formatter: function (value, row, index) {
-                                return "<a href='terminaledit.aspx?guid=" + row.Guid + "&page=" + $('#tb').datagrid('getPager').data("pagination").options.pageNumber + "'>" + value + "</a>";
+                                //return "<a href='terminaledit.aspx?guid=" + row.Guid + "&page=" + $('#tb').datagrid('getPager').data("pagination").options.pageNumber + "'>" + value + "</a>";
+                                return "<a href='terminaledit.aspx?guid=" + row.Guid +
+                                "&page=" + $('#tb').datagrid('getPager').data("pagination").options.pageNumber +
+                                "&StartTime=" + $("input[name='sea_start']").val() +
+                                "&EndTime=" + $("input[name='sea_end']").val() +
+                                "&SelectType=" + $("select[name='sea_select']").val() +
+                                "&Keyword=" + $("#sea_keyword").val() +
+                                 "'>" + value + "</a>";
                             }
                         }
                     );
@@ -149,6 +187,11 @@
             };
             if ($.query.get("Keyword") != true && $.query.get("Keyword") != "true") {
                 $("#sea_keyword").val($.query.get("Keyword"));
+                if ($.query.get("Keyword") == '已安装') {
+                    _title = '当前位置：终端管理 > 已安装终端列表';
+                } else if ($.query.get("Keyword") == '待安装') {
+                    _title = '当前位置：终端管理 > 待安装终端列表';
+                }
             };
             columnArray.push(
                     {
@@ -164,7 +207,7 @@
                         }
                 });
             $('#tb').datagrid({
-                title: '当前位置：终端管理 > 全部终端列表',
+                title: _title,
                 width: 'auto',
                 height: 'auto',
                 nowrap: false,
@@ -194,66 +237,75 @@
                 pageNumber: parseInt($.query.get("page")) || 1,
                 pageList: [10, 20, 30, 50],//可以设置每页记录条数的列表
                 rownumbers: false,
-                toolbar: [{
-                    id: 'btndelete',
-                    text: '删除',
-                    iconCls: 'icon-cancel',
-                    handler: function () {
-                        $('#btndelete').linkbutton('enable');
-                        //---
-                        var idsstr = "";
-                        var ids = new Array();
-                        var rows = $('#tb').datagrid('getSelections');
-                        if (rows.length < 1) {
-                            $.messager.alert('信息窗口', '请选择要删除的数据!', 'info');
-                        } else {
-                            var cand = true;
-                            for (var i = 0; i < rows.length; i++) {
-                                ids.push(rows[i].Guid);
-                            }
-                            idsstr = ids.join(',');
-                            if (cand) {
-                                $.messager.confirm('删除窗口', '确定要删除吗?', function (r) {
-                                    if (r) {
-                                        //--s-执行删除操作
-                                        $.ajax({
-                                            type: "POST",
-                                            url: "/user/userjson.aspx?Time=" + new Date().getTime(),
-                                            data: {
-                                                action: "Delete",
-                                                Guid: idsstr
-                                            },
-                                            dataType: "json",
-                                            cache: false,
-                                            success: function (msg) {
-                                                if (msg.result == "1") {
-                                                    $.messager.alert('信息窗口', '删除成功!', 'info', function () {
-                                                        //重新加载当前页
-                                                        $('#tb').datagrid('reload');
-                                                    });
-                                                } else {
-                                                    $.messager.alert('信息窗口', '删除失败!', 'info');
-                                                }
-                                            }
-                                        });
-                                        //--e-执行删除操作
-                                    }
-                                })
-                            } else {
-                                $.messager.alert('信息窗口', '你选择的数据中有ID为0的数据，此数据为系统数据，不能删除!', 'info');
-                            }
+                toolbar: [
+                    {
+                        id: 'btnadd',
+                        text: '添加',
+                        iconCls: 'icon-large-smartart',
+                        handler: function () {
+                            window.location.href = "terminaladd.aspx";
                         }
-                        //---
+                    },
+                    {
+                        id: 'btndelete',
+                        text: '删除',
+                        iconCls: 'icon-cancel',
+                        handler: function () {
+                            $('#btndelete').linkbutton('enable');
+                            //---
+                            var idsstr = "";
+                            var ids = new Array();
+                            var rows = $('#tb').datagrid('getSelections');
+                            if (rows.length < 1) {
+                                $.messager.alert('信息窗口', '请选择要删除的数据!', 'info');
+                            } else {
+                                var cand = true;
+                                for (var i = 0; i < rows.length; i++) {
+                                    ids.push(rows[i].Guid);
+                                }
+                                idsstr = ids.join(',');
+                                if (cand) {
+                                    $.messager.confirm('删除窗口', '确定要删除吗?', function (r) {
+                                        if (r) {
+                                            //--s-执行删除操作
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "/user/userjson.aspx?Time=" + new Date().getTime(),
+                                                data: {
+                                                    action: "Delete",
+                                                    Guid: idsstr
+                                                },
+                                                dataType: "json",
+                                                cache: false,
+                                                success: function (msg) {
+                                                    if (msg.result == "1") {
+                                                        $.messager.alert('信息窗口', '删除成功!', 'info', function () {
+                                                            //重新加载当前页
+                                                            $('#tb').datagrid('reload');
+                                                        });
+                                                    } else {
+                                                        $.messager.alert('信息窗口', '删除失败!', 'info');
+                                                    }
+                                                }
+                                            });
+                                            //--e-执行删除操作
+                                        }
+                                    })
+                                } else {
+                                    $.messager.alert('信息窗口', '你选择的数据中有ID为0的数据，此数据为系统数据，不能删除!', 'info');
+                                }
+                            }
+                            //---
+                        }
+                    }, '-',
+                    {
+                        id: 'btnexport',
+                        text: '导出',
+                        iconCls: 'icon-large-smartart',
+                        handler: function () {
+                            window.open("Export.aspx?action=Export&StartTime=" + $("input[name='sea_start']").val() + "&EndTime=" + $("input[name='sea_end']").val() + "&SelectType=" + $("select[name='sea_select']").val() + "&Keyword=" + $("#sea_keyword").val());
+                        }
                     }
-                }, '-',
-                {
-                    id: 'btnexport',
-                    text: '导出',
-                    iconCls: 'icon-large-smartart',
-                    handler: function () {
-                        window.open("Export.aspx?action=Export&StartTime=" + $("input[name='sea_start']").val() + "&EndTime=" + $("input[name='sea_end']").val() + "&SelectType=" + $("select[name='sea_select']").val() + "&Keyword=" + $("#sea_keyword").val());
-                    }
-                }
                 ],
                 onLoadSuccess: function () {
                     //alert($.query.get("Keyword"));

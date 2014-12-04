@@ -31,6 +31,15 @@ namespace WebSite.admin {
         protected global::System.Web.UI.WebControls.DropDownList Manufacturer;
         
         /// <summary>
+        /// RadioButtonList1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
+        
+        /// <summary>
         /// MachineSize 控件。
         /// </summary>
         /// <remarks>
@@ -166,6 +175,15 @@ namespace WebSite.admin {
         protected global::System.Web.UI.WebControls.DropDownList ddlClass;
         
         /// <summary>
+        /// Status 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList Status;
+        
+        /// <summary>
         /// Recores 控件。
         /// </summary>
         /// <remarks>
@@ -191,5 +209,14 @@ namespace WebSite.admin {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater scwOthers;
+        
+        /// <summary>
+        /// LocationCoordinate 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox LocationCoordinate;
     }
 }

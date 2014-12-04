@@ -6,3 +6,4 @@ D:\工作文件夹\CMS系统\TerminalMS\HD.Framework\bin\Debug\HD.Framework.dll
 D:\工作文件夹\CMS系统\TerminalMS\HD.Framework\bin\Debug\HD.Framework.pdb
 D:\工作文件夹\CMS系统\TerminalMS\HD.Framework\obj\Debug\HD.Framework.dll
 D:\工作文件夹\CMS系统\TerminalMS\HD.Framework\obj\Debug\HD.Framework.pdb
+D:\工作文件夹\CMS系统\TerminalMS\HD.Framework\obj\Debug\HD.Framework.csprojResolveAssemblyReference.cache

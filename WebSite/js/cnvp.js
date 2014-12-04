@@ -14,6 +14,23 @@ var ieVersion = function(){
     if(ie) ver = ie;
     return ver;
 };
+/* 
+
+   Get the rightmost substring, of the specified length, 
+
+   from a String object. 
+
+*/
+
+String.prototype.right = function (length_) {
+
+    var _from = this.length - length_;
+
+    if (_from < 0) _from = 0;
+
+    return this.substring(this.length - length_, this.length);
+
+};
 function showLocale()
 {
 	var objD = new Date();
@@ -416,6 +433,18 @@ $(function(){
         });
         return currCls;
     };
+
+    //全选
+    $("input[type='checkbox'][name='checkall']").on("click", function () {
+        $(this).parent().siblings().find("input[name='checkTermi']").prop("checked", $(this).prop("checked"));
+    })
+
+    //反选
+    $("input[type='checkbox'][name='checkinvert']").on("click", function () {
+        $(this).parent().siblings().find("input[name='checkTermi']").each(function () {
+            $(this).prop("checked", !$(this).prop("checked"));
+        })
+    })
 });
 //文字上下翻动
 var page = 1;
@@ -465,8 +494,89 @@ var Common = {
         if (obj.getFullYear() < 1900) {
             return "";
         }
-        var val = obj.getFullYear() + "-" + (obj.getMonth() + 1) + "-" + obj.getDate();//控制格式
+        var val = obj.getFullYear() + "-" + ("0" + (obj.getMonth() + 1)).right(2) + "-" + ("0" + obj.getDate()).right(2);//控制格式
         return val;
-    }
-
+    },
+    TimeExpiration: function (endTime, rec, index) {
+        if (endTime == undefined) {
+        return "";
+        }
+        var s1 = new Date();
+        s1 = s1.getFullYear() + "-" + ("0" + (s1.getMonth() + 1)).right(2) + "-" + ("0" + s1.getDate()).right(2);
+        var objEnd = new Date(endTime.replace('-', '/'));
+        var s2 = objEnd.getFullYear() + "-" + ("0" + (objEnd.getMonth() + 1)).right(2) + "-" + ("0" + objEnd.getDate()).right(2);//控制格式
+        //alert(obj);
+        //var dateValue = obj["Date"];
+        //if (objStart.getFullYear() < 1900) {
+        //return "";
+        //}
+    var val = dateDiff(s1, s2)
+    return val;
+}
 };
+
+//判断是否为闰年
+function isLeapYear(year) {
+    if (year % 4 == 0 && ((year % 100 != 0) || (year % 400 == 0))) {
+        return true;
+    }
+    return false;
+}
+//判断前后两个日期
+function validatePeriod(fyear, fmonth, fday, byear, bmonth, bday) {
+    if (fyear < byear) {
+        return true;
+    } else if (fyear == byear) {
+        if (fmonth < bmonth) {
+            return true;
+        } else if (fmonth == bmonth) {
+            if (fday <= bday) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+//计算两个日期的差值
+function dateDiff(d1, d2) {
+    var disNum = compareDate(d1, d2);
+    return disNum;
+}
+function compareDate(date1, date2) {
+    var regexp = /^(\d{1,4})[-|\.]{1}(\d{1,2})[-|\.]{1}(\d{1,2})$/;
+    var monthDays = [0, 3, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1];
+    regexp.test(date1);
+    var date1Year = RegExp.$1;
+    var date1Month = RegExp.$2;
+    var date1Day = RegExp.$3;
+
+    regexp.test(date2);
+    var date2Year = RegExp.$1;
+    var date2Month = RegExp.$2;
+    var date2Day = RegExp.$3;
+
+    if (validatePeriod(date1Year, date1Month, date1Day, date2Year, date2Month, date2Day)) {
+        firstDate = new Date(date1Year, date1Month, date1Day);
+        secondDate = new Date(date2Year, date2Month, date2Day);
+
+        result = Math.floor((secondDate.getTime() - firstDate.getTime()) / (1000 * 3600 * 24));
+        for (j = date1Year; j <= date2Year; j++) {
+            if (isLeapYear(j)) {
+                monthDays[1] = 2;
+            } else {
+                monthDays[1] = 3;
+            }
+            for (i = date1Month - 1; i < date2Month; i++) {
+                result = result - monthDays[i];
+            }
+        }
+        return result;
+    } else {
+        return "已下线";
+    }
+}

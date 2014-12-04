@@ -7,41 +7,41 @@ using HD.Framework.Utils;
 namespace HD.Model
 {
     [Description("广告单")]
-    [Key("ADGuid")]
+    [Key("ADPGuid")]
     public class AD : DbUtils<AD>
     {
-        private int? _Id = null;
+        private int? _ADId = null;
         /// <summary>  
-        /// Id  
+        /// ADId  
         /// </summary>  
         /// <returns></returns>  
-        [Description("Id")]
-        public int? Id
+        [Description("ADId")]
+        public int? ADId
         {
             get
             {
-                return this._Id;
+                return this._ADId;
             }
             set
             {
-                this._Id = value;
+                this._ADId = value;
             }
         }
-        private string _ADGuid = null;
+        private string _ADPGuid = null;
         /// <summary>  
         /// ADGuid  
         /// </summary>  
         /// <returns></returns>  
-        [Description("ADGuid")]
-        public string ADGuid
+        [Description("ADPGuid")]
+        public string ADPGuid
         {
             get
             {
-                return this._ADGuid;
+                return this._ADPGuid;
             }
             set
             {
-                this._ADGuid = value;
+                this._ADPGuid = value;
             }
         }
         private string _ADTitle = null;
@@ -146,13 +146,13 @@ namespace HD.Model
                 this._CountTime = value;
             }
         }
-        private int? _ADArea = null;
+        private string _ADArea = null;
         /// <summary>  
         /// 投放地域  
         /// </summary>  
         /// <returns></returns>  
         [Description("投放地域")]
-        public int? ADArea
+        public string ADArea
         {
             get
             {
@@ -163,21 +163,21 @@ namespace HD.Model
                 this._ADArea = value;
             }
         }
-        private string _Remark = null;
+        private string _ADRemark = null;
         /// <summary>  
         /// 备注  
         /// </summary>  
         /// <returns></returns>  
         [Description("备注")]
-        public string Remark
+        public string ADRemark
         {
             get
             {
-                return this._Remark;
+                return this._ADRemark;
             }
             set
             {
-                this._Remark = value;
+                this._ADRemark = value;
             }
         }
         private int? _PublishId = null;

@@ -15,6 +15,20 @@
     <script src="/js/easyui-lang-zh_CN.js"></script>
     <script src="/js/cnvp.js"></script>
     <script src="/js/jQuery.query.js"></script>
+    <style>
+    	#Terminal-info {
+			margin-left: 20px;
+		}
+		#Terminal-info tr:hover {
+			background: #dddddd;
+		}
+		#Terminal-info tr td {
+			font-size: 14px;
+		}
+		.tdpl10 {
+			padding-left: 10px;
+		}
+    </style>
 </head>
 <body>
     <form id="ff" name="ff" action="?Action=Edit" runat="server" enctype="multipart/form-data">
@@ -43,98 +57,77 @@
                 <div class="cnvp-tab-panle">
                     <div class="table-1">
                         <input type="hidden" name="terPage" value="<%=terPage %>" />
-                        <div class="control-group">
-                            <label for="in-out" class="control-label">设备厂商：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="Manufacturer" runat="server" Text="&nbsp;"></asp:Label>
-                            </div>
-                            <label for="in-out" class="control-label">尺寸：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="MachineSize" runat="server" Text="&nbsp;"></asp:Label>
-                            </div>
-                            <label for="in-out" class="control-label">屏幕：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="Screen" runat="server" Text="&nbsp;"></asp:Label>
-                            </div>
+                        <table width="80%" border="0" cellpadding="1" cellspacing="1" bgcolor="#dbdbdb" id="Terminal-info">
+                          <tbody>
+                            <tr>
+                              <td width="10%" height="50" align="center" bgcolor="#FFFFFF">放置地点：</td>
+                              <td width="20%" height="50" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="Location" runat="server" Text="&nbsp;"></asp:Label></td>
+                              <td width="10%" height="50" align="center" bgcolor="#FFFFFF">详细地址：</td>
+                              <td width="20%" height="50" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="Address" runat="server" Text="&nbsp;"></asp:Label></td>
+                              <td width="10%" height="50" align="center" bgcolor="#FFFFFF">安装时间：</td>
+                              <td width="30%" height="50" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="PostTime" runat="server" Text="&nbsp;"></asp:Label></td>
+                            </tr>
+                            <tr>
+                              <td height="50" align="center" bgcolor="#FFFFFF">联系人和电话：</td>
+                              <td height="50" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="ContentTel" runat="server" Text="&nbsp;"></asp:Label></td>
+                              <td height="50" align="center" bgcolor="#FFFFFF">区　　域：</td>
+                              <td height="50" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="Area" runat="server" Text="&nbsp;"></asp:Label></td>
+                              <td height="50" align="center" bgcolor="#FFFFFF">设备厂商：</td>
+                              <td height="50" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="Manufacturer" runat="server" Text="&nbsp;"></asp:Label></td>
+                            </tr>
+                            <tr>
+                              <td height="50" align="center" bgcolor="#FFFFFF">签　　收：</td>
+                              <td height="50" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="SignIn" runat="server" Text="&nbsp;"></asp:Label></td>
+                              <td height="50" align="center" bgcolor="#FFFFFF">开机时长：</td>
+                              <td height="50" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="OpenTime" runat="server" Text="&nbsp;"></asp:Label></td>
+                              <td height="50" align="center" bgcolor="#FFFFFF">屏　　幕：</td>
+                              <td height="50" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="Screen" runat="server" Text="&nbsp;"></asp:Label></td>
+                            </tr>
+                            <tr>
+                              <td height="50" align="center" bgcolor="#FFFFFF">编　　号：</td>
+                              <td height="50" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="Numb" runat="server" Text="&nbsp;"></asp:Label></td>
+                              <td height="50" align="center" bgcolor="#FFFFFF">系　　统：</td>
+                              <td height="50" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="System" runat="server" Text="&nbsp;"></asp:Label></td>
+                              <td height="50" align="center" bgcolor="#FFFFFF">使用状况：</td>
+                              <td height="50" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="Stituation" runat="server" Text="&nbsp;"></asp:Label></td>
+                            </tr>
+                            <tr>
+                              <td height="50" align="center" bgcolor="#FFFFFF">尺　　寸：</td>
+                              <td height="50" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="MachineSize" runat="server" Text="&nbsp;"></asp:Label></td>
+                              <td height="50" align="center" bgcolor="#FFFFFF">室内室外：</td>
+                              <td height="50" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="OutIn" runat="server" Text="&nbsp;"></asp:Label></td>
+                              <td height="50" align="center" bgcolor="#FFFFFF">赞助商：</td>
+                              <td height="50" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="Sponsor" runat="server" Text="&nbsp;"></asp:Label></td>
+                            </tr>
+                            <tr>
+                              <td height="50" align="center" bgcolor="#FFFFFF">所属类别：</td>
+                              <td height="50" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="ClassID" runat="server" Text="&nbsp;"></asp:Label></td>
+                              <td height="50" align="center" bgcolor="#FFFFFF">安装状态：</td>
+                              <td height="50" bgcolor="#FFFFFF" class="tdpl10">
+                                  <asp:Label ID="Status" runat="server" Text="&nbsp;"></asp:Label></td>
+                              <td height="50" align="center" bgcolor="#FFFFFF">&nbsp;</td>
+                              <td height="50" bgcolor="#FFFFFF" class="tdpl10">&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td height="50" align="center" bgcolor="#FFFFFF">转移记录：</td>
+                              <td height="50" colspan="5" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="Recores" runat="server" Text="&nbsp;"></asp:Label></td>
+                            </tr>
+                            <tr>
+                              <td height="50" align="center" bgcolor="#FFFFFF">备　　注：</td>
+                              <td height="50" colspan="5" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="Remark" runat="server" Text="&nbsp;"></asp:Label></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="control-group" style="font-size: 16px; line-height:50px;padding-left: 20px;">图片列表</div>
+                        <div style="overflow:hidden">
+                        	<asp:Repeater ID="scwOthers" runat="server">
+                                <ItemTemplate>
+                                    <div class="control-group" style="width:200px; margin:0 15px; float:left;">
+                                        <div><a href="<%#Eval("SourceUrl") %>" target="_blank"><img src="<%#Eval("SourceUrl") %>" width="200" /><span style="display:block; text-align:center;width:200px;">点击查看</span></a></div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </div>
-                        <div class="control-group">
-                            <label for="in-out" class="control-label">室内外：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="OutIn" runat="server" Text="&nbsp;"></asp:Label>
-                            </div>
-                            <label for="in-out" class="control-label">区域：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="Area" runat="server" Text="&nbsp;"></asp:Label>
-                            </div>
-                            <label for="in-out" class="control-label">放置地点：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="Location" runat="server" Text="&nbsp;"></asp:Label>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label for="in-out" class="control-label">签收：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="SignIn" runat="server" Text="&nbsp;"></asp:Label>
-                            </div>
-                            <label for="in-out" class="control-label">开机时长：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="OpenTime" runat="server" Text="&nbsp;"></asp:Label>
-                            </div>
-                            <label for="in-out" class="control-label">时间：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="PostTime" runat="server" Text="&nbsp;"></asp:Label>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label for="in-out" class="control-label">编号：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="Numb" runat="server" Text="&nbsp;"></asp:Label>
-                            </div>
-                            <label for="in-out" class="control-label">系统：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="System" runat="server" Text="&nbsp;"></asp:Label>
-                            </div>
-                            <label for="in-out" class="control-label">使用状况：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="Stituation" runat="server" Text="&nbsp;"></asp:Label>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label for="in-out" class="control-label">详细地址：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="Address" runat="server" Text="&nbsp;"></asp:Label>
-                            </div>
-                            <label for="in-out" class="control-label">联系人和电话：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="ContentTel" runat="server" Text="&nbsp;"></asp:Label>
-                            </div>
-                            <label for="in-out" class="control-label">赞助商：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="Sponsor" runat="server" Text="&nbsp;"></asp:Label>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label for="in-out" class="control-label">转移记录：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="Recores" runat="server" Text="&nbsp;"></asp:Label>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label for="in-out" class="control-label">备注：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="Remark" runat="server" Text="&nbsp;"></asp:Label>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label for="in-out" class="control-label1"><span>图片列表</span></label>
-                        </div>
-                        <asp:Repeater ID="scwOthers" runat="server">
-                            <ItemTemplate>
-                                <div class="control-group">
-                                    <div class="clear1"><img src="<%#Eval("SourceUrl") %>" width="80" height="60"  /><a href="<%#Eval("SourceUrl") %>" target="_blank">点击下载</a></div>
-                                </div>
-                            </ItemTemplate>
-                        </asp:Repeater>
                     </div>
                     <div class="control-group">
                         <a href="terminallist.aspx?page=<%=terPage %>&StatrTime=<%=startTime %>&EndTime=<%=endTime %>&SelectType=<%=selectType %>&Keyword=<%=keyWord %>" class="btn-submit">返　　回</a>

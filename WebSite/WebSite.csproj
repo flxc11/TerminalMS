@@ -38,11 +38,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="NPOI, Version=1.2.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\NPOI.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -61,16 +68,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Accept\AcceptAdd.aspx" />
+    <Content Include="Accept\AcceptEdit.aspx" />
+    <Content Include="Accept\AcceptJson.aspx" />
+    <Content Include="Accept\AcceptList.aspx" />
     <Content Include="admin\admininfo.aspx" />
     <Content Include="admin\adminjson.aspx" />
-    <Content Include="admin\Client\ClientAdd.aspx" />
-    <Content Include="admin\Client\ClientList.aspx" />
     <Content Include="admin\Export.aspx" />
     <Content Include="admin\fields.aspx" />
     <Content Include="admin\home.aspx" />
     <Content Include="admin\login.aspx" />
     <Content Include="admin\ManagerAdd.aspx" />
     <Content Include="admin\ManagerList.aspx" />
+    <Content Include="admin\map.aspx" />
     <Content Include="admin\terminaladd.aspx" />
     <Content Include="admin\terminaledit.aspx" />
     <Content Include="admin\terminallist.aspx" />
@@ -78,13 +88,17 @@
     <Content Include="bin\NPOI.dll" />
     <Content Include="client\clientadd.aspx" />
     <Content Include="client\clientcenter.aspx" />
+    <Content Include="client\clientedit.aspx" />
     <Content Include="client\clientjson.aspx" />
     <Content Include="client\clientlist.aspx" />
     <Content Include="control\adminleft.html" />
     <Content Include="control\userleft.html" />
     <Content Include="css\Global.css" />
+    <Content Include="css\iw_close.gif" />
     <Content Include="css\login_form.css" />
+    <Content Include="css\phone.png" />
     <Content Include="css\reg-login.css" />
+    <Content Include="css\SearchInfoWindow_min.css" />
     <Content Include="css\style.css" />
     <Content Include="images\bgalogin.jpg" />
     <Content Include="images\bgapplimanagh2.png" />
@@ -94,13 +108,22 @@
     <Content Include="images\bgmain.jpg" />
     <Content Include="images\bgpanelh2.jpg" />
     <Content Include="images\bgposition.jpg" />
+    <Content Include="images\Folder.gif" />
+    <Content Include="images\FolderOpen.gif" />
     <Content Include="images\iconappli1.png" />
     <Content Include="images\iconappli2.png" />
     <Content Include="images\iconappli3.png" />
     <Content Include="images\iconappli4.jpg" />
+    <Content Include="images\iconappliset.png" />
+    <Content Include="images\icongrzx.png" />
+    <Content Include="images\iconkhgl.png" />
     <Content Include="images\iconlgout.png" />
     <Content Include="images\iconmanager.png" />
+    <Content Include="images\iconsld.png" />
     <Content Include="images\iconsquare.jpg" />
+    <Content Include="images\iconyhgl.png" />
+    <Content Include="images\iconzdgl.png" />
+    <Content Include="images\Loading.gif" />
     <Content Include="images\logos.png" />
     <Content Include="js\adapters\standalone-framework.js" />
     <Content Include="js\adapters\standalone-framework.src.js" />
@@ -120,6 +143,8 @@
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jQuery.query.js" />
+    <Content Include="js\map.js" />
+    <Content Include="js\Marker.js" />
     <Content Include="js\modules\canvas-tools.js" />
     <Content Include="js\modules\canvas-tools.src.js" />
     <Content Include="js\modules\data.js" />
@@ -435,12 +460,17 @@
     <Content Include="UploadFile\20140911\201409111749515126.jpg" />
     <Content Include="user\Export.aspx" />
     <Content Include="user\fields.aspx" />
+    <Content Include="user\GetPoint.aspx" />
     <Content Include="user\home.aspx" />
     <Content Include="user\login.aspx" />
+    <Content Include="user\map.aspx" />
     <Content Include="user\mobilehome.aspx" />
     <Content Include="user\reg.aspx" />
     <Content Include="user\terminaldetail.aspx" />
     <Content Include="user\terminallist.aspx" />
+    <Content Include="user\UserAcceptDetail.aspx" />
+    <Content Include="user\UserAcceptList.aspx" />
+    <Content Include="user\UserClientList.aspx" />
     <Content Include="user\userinfo.aspx" />
     <Content Include="user\userjson.aspx" />
     <Content Include="Web.config">
@@ -448,6 +478,34 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accept\AcceptAdd.aspx.cs">
+      <DependentUpon>AcceptAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Accept\AcceptAdd.aspx.designer.cs">
+      <DependentUpon>AcceptAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Accept\AcceptEdit.aspx.cs">
+      <DependentUpon>AcceptEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Accept\AcceptEdit.aspx.designer.cs">
+      <DependentUpon>AcceptEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Accept\AcceptJson.aspx.cs">
+      <DependentUpon>AcceptJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Accept\AcceptJson.aspx.designer.cs">
+      <DependentUpon>AcceptJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Accept\AcceptList.aspx.cs">
+      <DependentUpon>AcceptList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Accept\AcceptList.aspx.designer.cs">
+      <DependentUpon>AcceptList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\admininfo.aspx.cs">
       <DependentUpon>admininfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -461,20 +519,6 @@
     </Compile>
     <Compile Include="admin\adminjson.aspx.designer.cs">
       <DependentUpon>adminjson.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\Client\ClientAdd.aspx.cs">
-      <DependentUpon>ClientAdd.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\Client\ClientAdd.aspx.designer.cs">
-      <DependentUpon>ClientAdd.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\Client\ClientList.aspx.cs">
-      <DependentUpon>ClientList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\Client\ClientList.aspx.designer.cs">
-      <DependentUpon>ClientList.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\Export.aspx.cs">
       <DependentUpon>Export.aspx</DependentUpon>
@@ -518,6 +562,13 @@
     <Compile Include="admin\ManagerList.aspx.designer.cs">
       <DependentUpon>ManagerList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\map.aspx.cs">
+      <DependentUpon>map.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\map.aspx.designer.cs">
+      <DependentUpon>map.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\terminaladd.aspx.cs">
       <DependentUpon>terminaladd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -560,6 +611,13 @@
     <Compile Include="client\clientcenter.aspx.designer.cs">
       <DependentUpon>clientcenter.aspx</DependentUpon>
     </Compile>
+    <Compile Include="client\clientedit.aspx.cs">
+      <DependentUpon>clientedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="client\clientedit.aspx.designer.cs">
+      <DependentUpon>clientedit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="client\clientjson.aspx.cs">
       <DependentUpon>clientjson.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -589,6 +647,13 @@
     <Compile Include="user\fields.aspx.designer.cs">
       <DependentUpon>fields.aspx</DependentUpon>
     </Compile>
+    <Compile Include="user\GetPoint.aspx.cs">
+      <DependentUpon>GetPoint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\GetPoint.aspx.designer.cs">
+      <DependentUpon>GetPoint.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -602,6 +667,13 @@
     </Compile>
     <Compile Include="user\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\map.aspx.cs">
+      <DependentUpon>map.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\map.aspx.designer.cs">
+      <DependentUpon>map.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\mobilehome.aspx.cs">
       <DependentUpon>mobilehome.aspx</DependentUpon>
@@ -631,6 +703,27 @@
     <Compile Include="user\terminallist.aspx.designer.cs">
       <DependentUpon>terminallist.aspx</DependentUpon>
     </Compile>
+    <Compile Include="user\UserAcceptDetail.aspx.cs">
+      <DependentUpon>UserAcceptDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\UserAcceptDetail.aspx.designer.cs">
+      <DependentUpon>UserAcceptDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\UserAcceptList.aspx.cs">
+      <DependentUpon>UserAcceptList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\UserAcceptList.aspx.designer.cs">
+      <DependentUpon>UserAcceptList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\UserClientList.aspx.cs">
+      <DependentUpon>UserClientList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\UserClientList.aspx.designer.cs">
+      <DependentUpon>UserClientList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\userinfo.aspx.cs">
       <DependentUpon>userinfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -647,6 +740,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\1.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -680,6 +774,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="admin\Accept\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

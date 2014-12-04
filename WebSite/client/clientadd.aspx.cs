@@ -26,8 +26,8 @@ namespace WebSite.client
         {
             HD.Model.Client client = new HD.Model.Client();
             client.UpdateModel();
-            client.ClientGuid = Public.GetGuID;
-            client.PostTime = DateTime.Now;
+            client.ClientPGuid = Public.GetGuID;
+            client.ClientPostTime = DateTime.Now;
             client.Insert();
 
             MessageBox.ShowMessage("客户添加成功！", "clientadd.aspx");

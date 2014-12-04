@@ -56,7 +56,7 @@
     function getWidth(percent) {
         return $(".main-r").width() * percent;
     }
-    var fields = "Id,Guid,ClientName,Tel,Operator,AgencyCompany,Mobile,Remark,PostTime";
+    var fields = "ClientId,ClientPGuid,ClientName,Tel,Operator,AgencyCompany,Mobile,ClientRemark,ClientPostTime";
 
     $('#tb').datagrid({
         title: '当前位置：客户管理 > 全部客户列表',
@@ -76,7 +76,7 @@
 
         ]],
         columns: [[
-            { title: '序号', field: 'ooo', width: getWidth(0.05), align: 'center',
+            { title: '序号', field: 'ooo',checkbox:true, width: getWidth(0.05), align: 'center',
                 formatter: function (value, row, index) {
                     return index + 1;
                 }
@@ -84,19 +84,19 @@
             { title: '客户名称', field: 'ClientName', width: getWidth(0.1), align: 'center' },
             { title: '客户方经办人', field: 'Operator', width: getWidth(0.1), align: 'center' },
             { title: '代理公司', field: 'AgencyCompany', width: getWidth(0.1), align: 'center' },
-            { title: '电话', field: 'Tel', width: getWidth(0.05), align: 'center' },
-            { title: '手机', field: 'Mobile', width: getWidth(0.05), align: 'center' },
-            { title: '备注', field: 'Remark', width: getWidth(0.1), align: 'center' },
+            { title: '电话', field: 'Tel', width: getWidth(0.1), align: 'center' },
+            { title: '手机', field: 'Mobile', width: getWidth(0.1), align: 'center' },
+            { title: '备注', field: 'ClientRemark', width: getWidth(0.1), align: 'center' },
             {
                 title: '添加时间', field: 'PostTime', width: getWidth(0.1), align: 'center',
                 formatter: function (value, row, index) {
-                    return Common.TimeFormatter(row.PostTime, row, index);
+                    return Common.TimeFormatter(row.ClientPostTime, row, index);
                 }
             },
             {
                 title: '操作', field: 'xxx', width: getWidth(0.05), align: 'center',
                 formatter: function (value, row, index) {
-                    return "<a href='javascript:;' onclick='resetUserPass()'>编辑</a>";
+                    return "<a href='clientedit.aspx?ClientGuid=" + row.ClientPGuid + "'>编辑</a>";
                 }
             }
         ]],
@@ -120,7 +120,7 @@
                 } else {
                     var cand = true;
                     for (var i = 0; i < rows.length; i++) {
-                        ids.push(rows[i].Guid);
+                        ids.push(rows[i].ClientGuid);
                     }
                     idsstr = ids.join(',');
                     if (cand) {
@@ -129,10 +129,10 @@
                                 //--s-执行删除操作
                                 $.ajax({
                                     type: "POST",
-                                    url: "/user/userjson.aspx?Time=" + new Date().getTime(),
+                                    url: "/client/clientjson.aspx?Time=" + new Date().getTime(),
                                     data: {
                                         action: "Delete",
-                                        Guid: idsstr
+                                        ClientGuid: idsstr
                                     },
                                     dataType: "json",
                                     cache: false,

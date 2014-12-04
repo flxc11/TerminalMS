@@ -102,8 +102,9 @@
                             <tr>
                               <td height="50" align="center" bgcolor="#FFFFFF">所属类别：</td>
                               <td height="50" bgcolor="#FFFFFF" class="tdpl10"><asp:Label ID="ClassID" runat="server" Text="&nbsp;"></asp:Label></td>
-                              <td height="50" align="center" bgcolor="#FFFFFF">&nbsp;</td>
-                              <td height="50" bgcolor="#FFFFFF" class="tdpl10">&nbsp;</td>
+                              <td height="50" align="center" bgcolor="#FFFFFF">安装状态：</td>
+                              <td height="50" bgcolor="#FFFFFF" class="tdpl10">
+                                  <asp:Label ID="Status" runat="server" Text="&nbsp;"></asp:Label></td>
                               <td height="50" align="center" bgcolor="#FFFFFF">&nbsp;</td>
                               <td height="50" bgcolor="#FFFFFF" class="tdpl10">&nbsp;</td>
                             </tr>

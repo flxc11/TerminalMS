@@ -17,6 +17,8 @@ D:\日报传媒\TerminalMS\WebSite\obj\Debug\WebSite.pdb
 D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\WebSite.dll.config
 D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\WebSite.dll
 D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\WebSite.pdb
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\EntityFramework.dll
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\EntityFramework.SqlServer.dll
 D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\HD.Config.dll
 D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\HD.Data.dll
 D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\HD.Framework.dll
@@ -27,6 +29,9 @@ D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\HD.Data.pdb
 D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\HD.Framework.pdb
 D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\HD.Model.pdb
 D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\HD.UI.pdb
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\EntityFramework.xml
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\EntityFramework.SqlServer.xml
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\zh-Hans\EntityFramework.resources.dll
 D:\工作文件夹\CMS系统\TerminalMS\WebSite\obj\Debug\WebSite.csprojResolveAssemblyReference.cache
 D:\工作文件夹\CMS系统\TerminalMS\WebSite\obj\Debug\WebSite.dll
 D:\工作文件夹\CMS系统\TerminalMS\WebSite\obj\Debug\WebSite.pdb

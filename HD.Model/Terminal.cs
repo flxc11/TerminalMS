@@ -350,5 +350,39 @@ namespace HD.Model
                 this._ClassID = value;
             }
         }
+        private string _LocationCoordinate = null;
+        /// <summary>  
+        /// 坐标地址  
+        /// </summary>  
+        /// <returns></returns>  
+        [Description("LocationCoordinate")]
+        public string LocationCoordinate
+        {
+            get
+            {
+                return this._LocationCoordinate;
+            }
+            set
+            {
+                this._LocationCoordinate = value;
+            }
+        }
+        private int? _Status = null;
+        /// <summary>  
+        /// 坐标地址  
+        /// </summary>  
+        /// <returns></returns>  
+        [Description("Status")]
+        public int? Status
+        {
+            get
+            {
+                return this._Status;
+            }
+            set
+            {
+                this._Status = value;
+            }
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace WebSite.user
         {
             if (!IsPostBack)
             {
-                DataTable dt = HD.Framework.DataAccess.DataFactory.GetInstance().ExecuteTable("select count(*) as tcount from wzrb_Terminal");
+                DataTable dt = HD.Framework.DataAccess.DataFactory.GetInstance().ExecuteTable("select count(*) as tcount from wzrb_Terminal where Status=1");
                 if (dt != null && dt.Rows.Count > 0)
                 {
                     TerminalCount = dt.Rows[0]["tcount"].ToString();
@@ -33,7 +33,7 @@ namespace WebSite.user
                 str += "<div class=\"btn-info\"><a href=\"terminallist.aspx?StartTime=" + beforeTMonth + "&EndTime=" + currentTime + "&SelectType=&Keyword=\">近三个月安装</a></div>";
 
                 //区域输出
-                DataTable dt1 = HD.Framework.DataAccess.DataFactory.GetInstance().ExecuteTable("select COUNT(*) as acount, Area from wzrb_Terminal group by Area order by acount desc");
+                DataTable dt1 = HD.Framework.DataAccess.DataFactory.GetInstance().ExecuteTable("select COUNT(*) as acount, Area from wzrb_Terminal where Status=1 group by Area order by acount desc");
                 rptArea.DataSource = dt1;
                 rptArea.DataBind();
                 if (dt1 != null && dt1.Rows.Count > 0)
@@ -46,11 +46,11 @@ namespace WebSite.user
                 }
 
                 //设备厂商输出
-                rptFactory.DataSource = HD.Framework.DataAccess.DataFactory.GetInstance().ExecuteTable("select COUNT(*) as acount, ManuFacturer from wzrb_Terminal group by ManuFacturer order by acount desc");
+                rptFactory.DataSource = HD.Framework.DataAccess.DataFactory.GetInstance().ExecuteTable("select COUNT(*) as acount, ManuFacturer from wzrb_Terminal where Status=1 group by ManuFacturer order by acount desc");
                 rptFactory.DataBind();
 
                 //每月安装数
-                DataTable dt2 = HD.Framework.DataAccess.DataFactory.GetInstance().ExecuteTable("select SUBSTRING(Convert(varchar(100), PostTime, 23),1,7) as ptime, count(*) as ccount from wzrb_Terminal group by SUBSTRING(Convert(varchar(100), PostTime, 23),1,7)");
+                DataTable dt2 = HD.Framework.DataAccess.DataFactory.GetInstance().ExecuteTable("select SUBSTRING(Convert(varchar(100), PostTime, 23),1,7) as ptime, count(*) as ccount from wzrb_Terminal where Status=1 group by SUBSTRING(Convert(varchar(100), PostTime, 23),1,7)");
                 if (dt2 != null && dt2.Rows.Count > 0)
                 {
                     for (int i = 0; i < dt2.Rows.Count; i++)
@@ -71,7 +71,7 @@ namespace WebSite.user
                 }
 
                 //按类别输出
-                rptClass.DataSource = HD.Framework.DataAccess.DataFactory.GetInstance().ExecuteTable("select COUNT(*) as acount, ClassID, wzrb_Class.ClassName from wzrb_Terminal left join wzrb_Class on wzrb_Terminal.ClassID=wzrb_Class.ID group by ClassName, ClassID order by acount desc");
+                rptClass.DataSource = HD.Framework.DataAccess.DataFactory.GetInstance().ExecuteTable("select COUNT(*) as acount, ClassID, wzrb_Class.ClassName from wzrb_Terminal left join wzrb_Class on wzrb_Terminal.ClassID=wzrb_Class.ID where Status=1 group by ClassName, ClassID order by acount desc");
                 rptClass.DataBind();
             }
         }

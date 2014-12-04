@@ -7,41 +7,41 @@ using HD.Framework.Utils;
 namespace HD.Model
 {
     [Description("客户表")]
-    [Key("ClientGuid")]
+    [Key("ClientPGuid")]
     public class Client : DbUtils<Client>
     {
-        private int? _Id = null;
+        private int? _ClientId = null;
         /// <summary>  
-        /// Id  
+        /// ClientId  
         /// </summary>  
         /// <returns></returns>  
-        [Description("Id")]
-        public int? Id
+        [Description("ClientId")]
+        public int? ClientId
         {
             get
             {
-                return this._Id;
+                return this._ClientId;
             }
             set
             {
-                this._Id = value;
+                this._ClientId = value;
             }
         }
-        private string _ClientGuid = null;
+        private string _ClientPGuid = null;
         /// <summary>  
         /// Guid  
         /// </summary>  
         /// <returns></returns>  
-        [Description("ClientGuid")]
-        public string ClientGuid
+        [Description("ClientPGuid")]
+        public string ClientPGuid
         {
             get
             {
-                return this._ClientGuid;
+                return this._ClientPGuid;
             }
             set
             {
-                this._ClientGuid = value;
+                this._ClientPGuid = value;
             }
         }
         private string _ClientName = null;
@@ -129,38 +129,38 @@ namespace HD.Model
                 this._Mobile = value;
             }
         }
-        private string _Remark = null;
+        private string _ClientRemark = null;
         /// <summary>  
         /// 备注  
         /// </summary>  
         /// <returns></returns>  
         [Description("备注")]
-        public string Remark
+        public string ClientRemark
         {
             get
             {
-                return this._Remark;
+                return this._ClientRemark;
             }
             set
             {
-                this._Remark = value;
+                this._ClientRemark = value;
             }
         }
-        private DateTime? _PostTime = null;
+        private DateTime? _ClientPostTime = null;
         /// <summary>  
         /// 添加时间  
         /// </summary>  
         /// <returns></returns>  
         [Description("添加时间")]
-        public DateTime? PostTime
+        public DateTime? ClientPostTime
         {
             get
             {
-                return this._PostTime;
+                return this._ClientPostTime;
             }
             set
             {
-                this._PostTime = value;
+                this._ClientPostTime = value;
             }
         }
     }

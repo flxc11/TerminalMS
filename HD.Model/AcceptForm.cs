@@ -367,5 +367,22 @@ namespace HD.Model
                 this._Lead = value;
             }
         }
+        private string _Remark = null;
+        /// <summary>  
+        /// 备注  
+        /// </summary>  
+        /// <returns></returns>  
+        [Description("备注")]
+        public string Remark
+        {
+            get
+            {
+                return this._Remark;
+            }
+            set
+            {
+                this._Remark = value;
+            }
+        }
     }
 }
