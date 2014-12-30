@@ -510,9 +510,31 @@ var Common = {
         //if (objStart.getFullYear() < 1900) {
         //return "";
         //}
-    var val = dateDiff(s1, s2)
-    return val;
-}
+        var val = dateDiff(s1, s2);
+        return val;
+    },
+    GetClass: function (classId, rec, index) {
+        switch (classId) {
+            case "3":
+                return "街道社区";
+            case "4":
+                return "党政机关";
+            case "5":
+                return "公共场所";
+            case "6":
+                return "文化礼堂";
+            case "7":
+                return "机关事业";
+            case "8":
+                return "公安系统";
+            case "9":
+                return "客运中心";
+            case "10":
+                return "医院系统";
+            default:
+                return "";
+        }
+    }
 };
 
 //判断是否为闰年
@@ -572,7 +594,7 @@ function compareDate(date1, date2) {
                 monthDays[1] = 3;
             }
             for (i = date1Month - 1; i < date2Month; i++) {
-                result = result - monthDays[i];
+                result = result - monthDays[i] + 1;
             }
         }
         return result;

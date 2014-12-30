@@ -46,6 +46,8 @@
     <Compile Include="Fields.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Publish.cs" />
+    <Compile Include="Repair.cs" />
+    <Compile Include="Reply.cs" />
     <Compile Include="Source.cs" />
     <Compile Include="Terminal.cs" />
     <Compile Include="User.cs" />

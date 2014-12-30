@@ -133,13 +133,37 @@ namespace WebSite.user
                     {
                         sqlWhere += " and ClassID=2";
                     }
-                    else if (_keyword == "社区街道")
+                    else if (_keyword == "街道社区")
                     {
                         sqlWhere += " and ClassID=3";
                     }
-                    else if (_keyword == "机关单位")
+                    else if (_keyword == "党政机关")
                     {
                         sqlWhere += " and ClassID=4";
+                    }
+                    else if (_keyword == "公共场所")
+                    {
+                        sqlWhere += " and ClassID=5";
+                    }
+                    else if (_keyword == "文化礼堂")
+                    {
+                        sqlWhere += " and ClassID=6";
+                    }
+                    else if (_keyword == "机关事业")
+                    {
+                        sqlWhere += " and ClassID=7";
+                    }
+                    else if (_keyword == "公安系统")
+                    {
+                        sqlWhere += " and ClassID=8";
+                    }
+                    else if (_keyword == "客运中心")
+                    {
+                        sqlWhere += " and ClassID=9";
+                    }
+                    else if (_keyword == "医院系统")
+                    {
+                        sqlWhere += " and ClassID=10";
                     }
                 }
                 else
@@ -356,6 +380,10 @@ namespace WebSite.user
                     {
                         sqlWhere += " and Status=0";
                     }
+                    else if (_keyword == "已搬回")
+                    {
+                        sqlWhere += " and Status=2";
+                    }
                 }
                 else if (_selectType == "ClassID")
                 {
@@ -367,13 +395,37 @@ namespace WebSite.user
                     {
                         sqlWhere += " and ClassID=2";
                     }
-                    else if (_keyword == "社区街道")
+                    else if (_keyword == "街道社区")
                     {
                         sqlWhere += " and ClassID=3";
                     }
-                    else if (_keyword == "机关单位")
+                    else if (_keyword == "党政机关")
                     {
                         sqlWhere += " and ClassID=4";
+                    }
+                    else if (_keyword == "公共场所")
+                    {
+                        sqlWhere += " and ClassID=5";
+                    }
+                    else if (_keyword == "文化礼堂")
+                    {
+                        sqlWhere += " and ClassID=6";
+                    }
+                    else if (_keyword == "机关事业")
+                    {
+                        sqlWhere += " and ClassID=7";
+                    }
+                    else if (_keyword == "公安系统")
+                    {
+                        sqlWhere += " and ClassID=8";
+                    }
+                    else if (_keyword == "客运中心")
+                    {
+                        sqlWhere += " and ClassID=9";
+                    }
+                    else if (_keyword == "医院系统")
+                    {
+                        sqlWhere += " and ClassID=10";
                     }
                 }
                 else

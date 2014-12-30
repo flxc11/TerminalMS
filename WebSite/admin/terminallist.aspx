@@ -125,17 +125,7 @@
                         {
                             title: arrexplains[i], field: arrfields[i], width: getWidth(0.05), align: 'center',
                             formatter: function (value, row, index) {
-                                if (row.ClassID == "1") {
-                                    return "A级商业圈";
-                                } else if (row.ClassID == "2") {
-                                    return "B级商业圈";
-                                } else if (row.ClassID == "3") {
-                                    return "社区街道";
-                                } else if (row.ClassID == "4") {
-                                    return "机关单位";
-                                } else {
-                                    return "公共场所";
-                                };
+                                return Common.GetClass(row.ClassID, row, index);
                             }
                         }
                     );
@@ -154,6 +144,8 @@
                             formatter: function (value, row, index) {
                                 if (row.Status == "1") {
                                     return "已安装";
+                                } else if (row.Status == "2") {
+                                    return "<span style='color:red'>已搬回</span>";
                                 } else {
                                     return "待安装";
                                 }
@@ -302,10 +294,18 @@
                     }, '-',
                     {
                         id: 'btnexport',
-                        text: '导出',
+                        text: '设备导出',
                         iconCls: 'icon-large-smartart',
                         handler: function () {
                             window.open("Export.aspx?action=Export&StartTime=" + $("input[name='sea_start']").val() + "&EndTime=" + $("input[name='sea_end']").val() + "&SelectType=" + $("select[name='sea_select']").val() + "&Keyword=" + $("#sea_keyword").val());
+                        }
+                    }, '-',
+                    {
+                        id: 'btnpointexport',
+                        text: '点位导出',
+                        iconCls: 'icon-large-smartart',
+                        handler: function () {
+                            window.open("Export.aspx?action=PointExport&StartTime=" + $("input[name='sea_start']").val() + "&EndTime=" + $("input[name='sea_end']").val() + "&SelectType=" + $("select[name='sea_select']").val() + "&Keyword=" + $("#sea_keyword").val());
                         }
                     }
                 ],

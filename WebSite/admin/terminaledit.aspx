@@ -190,6 +190,7 @@
                                 <asp:RadioButtonList ID="Status" runat="server" RepeatDirection="Horizontal">
                                     <asp:ListItem Selected="True" Value="0">待安装</asp:ListItem>
                                     <asp:ListItem Value="1">已安装</asp:ListItem>
+                                    <asp:ListItem Value="2">已搬回</asp:ListItem>
                                 </asp:RadioButtonList>
                             </div>
                         </div>

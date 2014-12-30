@@ -123,6 +123,7 @@
     <Content Include="images\iconsquare.jpg" />
     <Content Include="images\iconyhgl.png" />
     <Content Include="images\iconzdgl.png" />
+    <Content Include="images\iconzxbx.png" />
     <Content Include="images\Loading.gif" />
     <Content Include="images\logos.png" />
     <Content Include="js\adapters\standalone-framework.js" />
@@ -169,6 +170,10 @@
     <Content Include="js\themes\grid.js" />
     <Content Include="js\themes\sand-signika.js" />
     <Content Include="js\themes\skies.js" />
+    <Content Include="Repair\RepairAdd.aspx" />
+    <Content Include="Repair\RepairEdit.aspx" />
+    <Content Include="Repair\RepairJson.aspx" />
+    <Content Include="Repair\RepairList.aspx" />
     <Content Include="themes\black\accordion.css" />
     <Content Include="themes\black\calendar.css" />
     <Content Include="themes\black\combo.css" />
@@ -466,6 +471,8 @@
     <Content Include="user\map.aspx" />
     <Content Include="user\mobilehome.aspx" />
     <Content Include="user\reg.aspx" />
+    <Content Include="user\RepairDetail.aspx" />
+    <Content Include="user\RepairList.aspx" />
     <Content Include="user\terminaldetail.aspx" />
     <Content Include="user\terminallist.aspx" />
     <Content Include="user\UserAcceptDetail.aspx" />
@@ -633,6 +640,34 @@
       <DependentUpon>clientlist.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repair\RepairAdd.aspx.cs">
+      <DependentUpon>RepairAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Repair\RepairAdd.aspx.designer.cs">
+      <DependentUpon>RepairAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Repair\RepairEdit.aspx.cs">
+      <DependentUpon>RepairEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Repair\RepairEdit.aspx.designer.cs">
+      <DependentUpon>RepairEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Repair\RepairJson.aspx.cs">
+      <DependentUpon>RepairJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Repair\RepairJson.aspx.designer.cs">
+      <DependentUpon>RepairJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Repair\RepairList.aspx.cs">
+      <DependentUpon>RepairList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Repair\RepairList.aspx.designer.cs">
+      <DependentUpon>RepairList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\Export.aspx.cs">
       <DependentUpon>Export.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -688,6 +723,20 @@
     </Compile>
     <Compile Include="user\reg.aspx.designer.cs">
       <DependentUpon>reg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\RepairDetail.aspx.cs">
+      <DependentUpon>RepairDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\RepairDetail.aspx.designer.cs">
+      <DependentUpon>RepairDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\RepairList.aspx.cs">
+      <DependentUpon>RepairList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\RepairList.aspx.designer.cs">
+      <DependentUpon>RepairList.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\terminaldetail.aspx.cs">
       <DependentUpon>terminaldetail.aspx</DependentUpon>
