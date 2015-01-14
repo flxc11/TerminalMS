@@ -538,3 +538,9 @@ html {
     opacity: 0.5;
     filter: (opacity=50);
 }
+.privi-list {
+    float: left;
+    width: 80px;
+    margin-left: 10px;
+    line-height: 30px;
+}

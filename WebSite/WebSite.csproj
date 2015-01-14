@@ -81,6 +81,7 @@
     <Content Include="admin\ManagerAdd.aspx" />
     <Content Include="admin\ManagerList.aspx" />
     <Content Include="admin\map.aspx" />
+    <Content Include="admin\privilege.aspx" />
     <Content Include="admin\terminaladd.aspx" />
     <Content Include="admin\terminaledit.aspx" />
     <Content Include="admin\terminallist.aspx" />
@@ -92,6 +93,7 @@
     <Content Include="client\clientjson.aspx" />
     <Content Include="client\clientlist.aspx" />
     <Content Include="control\adminleft.html" />
+    <Content Include="control\userleft - Copy.html" />
     <Content Include="control\userleft.html" />
     <Content Include="css\Global.css" />
     <Content Include="css\iw_close.gif" />
@@ -140,6 +142,7 @@
     <Content Include="js\highcharts.src.js" />
     <Content Include="js\JqPrintArea.js" />
     <Content Include="js\jquery.ba-hashchange.js" />
+    <Content Include="js\jquery.cookie.js" />
     <Content Include="js\jquery.easyui.min.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
@@ -576,6 +579,13 @@
     <Compile Include="admin\map.aspx.designer.cs">
       <DependentUpon>map.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\privilege.aspx.cs">
+      <DependentUpon>privilege.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\privilege.aspx.designer.cs">
+      <DependentUpon>privilege.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\terminaladd.aspx.cs">
       <DependentUpon>terminaladd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -604,6 +614,7 @@
     <Compile Include="admin\userlist.aspx.designer.cs">
       <DependentUpon>userlist.aspx</DependentUpon>
     </Compile>
+    <Content Include="App_Code\TestFunction.cs" />
     <Compile Include="client\clientadd.aspx.cs">
       <DependentUpon>clientadd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -821,9 +832,7 @@
       <Name>HD.UI</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="admin\Accept\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

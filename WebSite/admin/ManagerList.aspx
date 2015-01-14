@@ -252,7 +252,7 @@
             {
                 title: '操作', field: 'xxx', width: getWidth(0.15), align: 'center',
                 formatter: function (value, row, index) {
-                    return "<a href='javascript:;' onclick='resetUserPass()'>密码重置</a>";
+                    return "<a href='javascript:;' onclick='resetUserPass()'>密码重置</a> <a href='javascript:;' onclick='resetUserPass()'>权限设置</a>";
                 }
             }
         ]],
@@ -300,7 +300,7 @@
                 iconCls: 'icon-search',
                 handler: function () {
                     $('#btnquery').linkbutton('enable');
-                    alert('查询')
+                    alert('查询');
 
                 }
             }

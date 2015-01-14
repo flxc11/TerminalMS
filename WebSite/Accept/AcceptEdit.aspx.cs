@@ -13,7 +13,7 @@ namespace WebSite.Accept
 {
     public partial class AcceptEdit : AdminPage
     {
-        public string publishType, pubNum, acceptGuid, adAreaId = string.Empty;
+        public string publishType, pubNum, acceptGuid, adAreaId, Count = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             string Action = Request.Params["Action"];
@@ -43,6 +43,14 @@ namespace WebSite.Accept
                     ad.SetWebControls(this.Page);
                     adClass = ad.ADArea;
                     adAreaId = ad.ADArea;
+                    if (string.IsNullOrEmpty(adAreaId))
+                    {
+                        Count = "0";
+                    }
+                    else
+                    {
+                        Count = (adAreaId.Split(',').Length - 2).ToString();
+                    }
                     StartTime.Text = Convert.ToDateTime(ad.StartTime).ToString("yyyy-MM-dd");
                     EndTime.Text = Convert.ToDateTime(ad.EndTime).ToString("yyyy-MM-dd");
 
@@ -55,24 +63,6 @@ namespace WebSite.Accept
                     DataTable dt2 = HD.Framework.DataAccess.DataFactory.GetInstance().ExecuteTable("select wzrb_Class.ID, wzrb_Class.ClassName, (select COUNT(*) from wzrb_Terminal where ClassID=wzrb_Class.ID and status=1)  as rcount from wzrb_Class");
                     rptClass.DataSource = dt2;
                     rptClass.DataBind();
-                    //CheckBoxList1.DataSource = dt2;
-                    //CheckBoxList1.DataTextField = "ClassName";
-                    //CheckBoxList1.DataValueField = "ID";
-                    //CheckBoxList1.DataBind();
-                    //if (!string.IsNullOrEmpty(adClass))
-                    //{
-                    //    string[] adClassList = adClass.Split(',');
-                    //    foreach (ListItem item in CheckBoxList1.Items)
-                    //    {
-                    //        for (int i = 0; i < adClassList.Length; i++)
-                    //        {
-                    //            if (item.Value == adClassList[i])
-                    //            {
-                    //                item.Selected = true;
-                    //            }
-                    //        }
-                    //    }
-                    //}
 
                     DataTable dt = HD.Framework.DataAccess.DataFactory.GetInstance().ExecuteTable("select * from wzrb_PublishType");
                     DataTable dttype = HD.Framework.DataAccess.DataFactory.GetInstance().ExecuteTable("select * from wzrb_Publish where ADGuid='" + ad.ADPGuid + "'");
@@ -98,7 +88,14 @@ namespace WebSite.Accept
                                 }
                             }
                             publishType += "\" class=\"accept-input6\" />";
-                            publishType += "个</td></tr>";
+                            publishType += "个</td>";
+                            publishType += "<td>上屏时间</td>";
+                            publishType += "<td>";
+                            publishType += "</td>";
+                            publishType += "<td>下屏时间</td>";
+                            publishType += "<td>";
+                            publishType += "</td>";
+                            publishType += "</tr>";
                         }
                         publishType += "</table>";
                     }
@@ -127,6 +124,10 @@ namespace WebSite.Accept
             acceptGuid = Request.Params["acceptGuid"];
             pubNum = Request.Params["pubNum"];
             string adArea = Request.Params["checkTermi"];
+            if (string.IsNullOrEmpty(adArea))
+            {
+                adArea = "";
+            }
             //受理单内容
             Hashtable hs = new Hashtable();
             hs.Add("AcceptGuid", acceptGuid);
@@ -187,7 +188,7 @@ namespace WebSite.Accept
         {
             string str = string.Empty;
             string temp = "," + terminalId + ",";
-            if (adAreaList.IndexOf(temp) >= 0)
+            if (!string.IsNullOrEmpty(adAreaList) && adAreaList.IndexOf(temp) >= 0)
             {
                 str = "checked='checked'";
             }

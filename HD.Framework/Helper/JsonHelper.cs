@@ -448,7 +448,7 @@ namespace HD.Framework.Helper
                             sb.Append("\":");
                             sb.Append("\"");
                             if (dr[item] != null && dr[item] != DBNull.Value && dr[item].ToString() != "")
-                                sb.Append(dr[item]);
+                                sb.Append(dr[item].ToString().Replace("\r\n", "").Replace("  ", "").Replace("　", "").Replace("	",""));
                             else
                                 sb.Append("");
                             sb.Append("\",");

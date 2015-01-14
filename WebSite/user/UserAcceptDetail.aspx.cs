@@ -96,7 +96,7 @@ namespace WebSite.user
         {
             string str = string.Empty;
             string temp = "," + terminalId + ",";
-            if (adAreaList.IndexOf(temp) >= 0)
+            if (!string.IsNullOrEmpty(adAreaList) && adAreaList.IndexOf(temp) >= 0)
             {
                 str = " class='div-db'";
             }

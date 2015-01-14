@@ -22,7 +22,7 @@ namespace WebSite.user
                 string Keyword = Request.Params["Keyword"];
                 Response.ContentType = "text/xml";
                 string str = string.Empty;
-                string strSql = "select * from wzrb_Terminal where 1=1 ";
+                string strSql = "select * from wzrb_Terminal where 1=1 and status=1";
                 if (!string.IsNullOrEmpty(ClassID) && Public.IsNumber(ClassID))
                 {
                     strSql += " and ClassID=" + ClassID;

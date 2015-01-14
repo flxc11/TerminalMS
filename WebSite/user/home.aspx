@@ -53,178 +53,178 @@
 
             
 
-        function SecondChart(yearMonth) {
+            function SecondChart(yearMonth) {
 
-            var chart1 = new Highcharts.Chart({
-                chart: {
-                    renderTo: 'container1',
-                    type: 'column',
-                    margin: 75,
-                    options3d: {
-                        enabled: true,
-                        alpha: 10,
-                        beta: 10,
-                        depth: 25,
-                        viewDistance: 50
-                    }
-                },
-                title: {
-                    text: yearMonth + ' 进度柱状图'
-                },
-                xAxis: {
-                    allowDecimals: false,
-                    labels: {
-                        formatter: function () {
-                            return this.value; // clean, unformatted number for year
+                var chart1 = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'container1',
+                        type: 'column',
+                        margin: 75,
+                        options3d: {
+                            enabled: true,
+                            alpha: 10,
+                            beta: 10,
+                            depth: 25,
+                            viewDistance: 50
                         }
-                    }
-                },
-                yAxis: {
+                    },
                     title: {
-                        text: '台数'
-                    }
-                },
-                // tooltip: {
-                //     crosshairs: true,
-                //     shared: true
-                // },
-                plotOptions: {
-                    column : {
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: false
-                        },
-                        pointStart: 1,
-                        events: {
-                            click: function(e) {
-                                //console.log(Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', e.xAxis))
-                                //console.log()
-                                firstCharts();
+                        text: yearMonth + ' 进度柱状图'
+                    },
+                    xAxis: {
+                        allowDecimals: false,
+                        labels: {
+                            formatter: function () {
+                                return this.value; // clean, unformatted number for year
                             }
                         }
-                    }
-                },
-                series: [{
-                    name: '安装台数',
-                    //data: [10, null, null, 15,null,null,null,null,null,null,1,2,null,null,1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]
-                    data: []
-                }]
-            });
-            $.ajax({
-                url: '/user/userjson.aspx',
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    Action: 'GetMonthTer',
-                    YearMonth: yearMonth,
-                    Time: new Date().getTime()
-                }/*,
+                    },
+                    yAxis: {
+                        title: {
+                            text: '台数'
+                        }
+                    },
+                    // tooltip: {
+                    //     crosshairs: true,
+                    //     shared: true
+                    // },
+                    plotOptions: {
+                        column : {
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: false
+                            },
+                            pointStart: 1,
+                            events: {
+                                click: function(e) {
+                                    //console.log(Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', e.xAxis))
+                                    //console.log()
+                                    firstCharts();
+                                }
+                            }
+                        }
+                    },
+                    series: [{
+                        name: '安装台数',
+                        //data: [10, null, null, 15,null,null,null,null,null,null,1,2,null,null,1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]
+                        data: []
+                    }]
+                });
+                $.ajax({
+                        url: '/user/userjson.aspx',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {
+                            Action: 'GetMonthTer',
+                            YearMonth: yearMonth,
+                            Time: new Date().getTime()
+                        }/*,
                 beforeSend: function() {
                     $("#container1").html("asdf");
                 }*/
-            })
-            .done(function(d) {
-                var arrdate = d.date.split(',');
-                for (var i = 0; i < arrdate.length; i++) {
-                    if (arrdate[i] == "null") {
-                        chart1.series[0].addPoint("");
-                    } else {
-                        chart1.series[0].addPoint({y: parseInt(arrdate[i]), name:"点击柱体返回<br>" + yearMonth + "-" + (i + 1)});
-                    };
-                };
-            })
-            // Activate the sliders
-            $('#R0').off();
-            $('#R1').off();
-            $('#R0').on('change', function () {
-                chart1.options.chart.options3d.alpha = this.value;
-                showValues(chart1);
-                chart1.redraw(false);
-            });
-            $('#R1').on('change', function () {
-                chart1.options.chart.options3d.beta = this.value;
-                showValues(chart1);
-                chart1.redraw(false);
-            });
+                    })
+                    .done(function(d) {
+                        var arrdate = d.date.split(',');
+                        for (var i = 0; i < arrdate.length; i++) {
+                            if (arrdate[i] == "null") {
+                                chart1.series[0].addPoint("");
+                            } else {
+                                chart1.series[0].addPoint({y: parseInt(arrdate[i]), name:"点击柱体返回<br>" + yearMonth + "-" + (i + 1)});
+                            };
+                        };
+                    })
+                // Activate the sliders
+                $('#R0').off();
+                $('#R1').off();
+                $('#R0').on('change', function () {
+                    chart1.options.chart.options3d.alpha = this.value;
+                    showValues(chart1);
+                    chart1.redraw(false);
+                });
+                $('#R1').on('change', function () {
+                    chart1.options.chart.options3d.beta = this.value;
+                    showValues(chart1);
+                    chart1.redraw(false);
+                });
 
-            showValues(chart1);
-        }
-        function firstCharts() {
-            // Set up the chart
-            var chart = new Highcharts.Chart({
-                chart: {
-                    renderTo: 'container1',
-                    type: 'column',
-                    margin: 75,
-                    options3d: {
-                        enabled: true,
-                        alpha: 15,
-                        beta: 15,
-                        depth: 25,
-                        viewDistance: 50
-                    }
-                },
-                title: {
-                    text: '进度柱状图'
-                },
-                xAxis: {
-                    type: 'datetime',
-                    labels: {
-                        formatter: function() {
-                            //return Highcharts.dateFormat('%Y-%m', this.value);
-                            return Highcharts.dateFormat('%Y-%m', this.value);
+                showValues(chart1);
+            }
+            function firstCharts() {
+                // Set up the chart
+                var chart = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'container1',
+                        type: 'column',
+                        margin: 75,
+                        options3d: {
+                            enabled: true,
+                            alpha: 15,
+                            beta: 15,
+                            depth: 25,
+                            viewDistance: 50
                         }
-                    }
-                },
-                yAxis: {
+                    },
                     title: {
-                        text: '台数'
-                    }
-                },
-                subtitle: {
-                    text: ''
-                },
-                tooltip: {
-                    crosshairs: true,
-                    shared: true
-                },
-                plotOptions: {
-                    column : {
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true
-                        },
-                        events: {
-                            click: function(e) {
-                                //console.log(Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', e.xAxis))
-                                //console.log()
-                                SecondChart(Highcharts.dateFormat('%Y-%m', e.point.options['x']));
+                        text: '进度柱状图'
+                    },
+                    xAxis: {
+                        type: 'datetime',
+                        labels: {
+                            formatter: function() {
+                                //return Highcharts.dateFormat('%Y-%m', this.value);
+                                return Highcharts.dateFormat('%Y-%m', this.value);
                             }
                         }
-                    }
-                },
-                series: [{
-                    name: '安装台数',
-                    data: [<%=arrCount%>]
-                }]
-            });
+                    },
+                    yAxis: {
+                        title: {
+                            text: '台数'
+                        }
+                    },
+                    subtitle: {
+                        text: ''
+                    },
+                    tooltip: {
+                        crosshairs: true,
+                        shared: true
+                    },
+                    plotOptions: {
+                        column : {
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true
+                            },
+                            events: {
+                                click: function(e) {
+                                    //console.log(Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', e.xAxis))
+                                    //console.log()
+                                    SecondChart(Highcharts.dateFormat('%Y-%m', e.point.options['x']));
+                                }
+                            }
+                        }
+                    },
+                    series: [{
+                        name: '安装台数',
+                        data: [<%=arrCount%>]
+                    }]
+                });
 
-            // Activate the sliders
-            $('#R0').off();
-            $('#R1').off();
-            $('#R0').on('change', function () {
-                chart.options.chart.options3d.alpha = this.value;
-                showValues(chart);
-                chart.redraw(false);
-            });
-            $('#R1').on('change', function () {
-                chart.options.chart.options3d.beta = this.value;
-                showValues(chart);
-                chart.redraw(false);
-            });
+                // Activate the sliders
+                $('#R0').off();
+                $('#R1').off();
+                $('#R0').on('change', function () {
+                    chart.options.chart.options3d.alpha = this.value;
+                    showValues(chart);
+                    chart.redraw(false);
+                });
+                $('#R1').on('change', function () {
+                    chart.options.chart.options3d.beta = this.value;
+                    showValues(chart);
+                    chart.redraw(false);
+                });
 
-            showValues(chart);
-        }
+                showValues(chart);
+            }
 
         });
         function showValues(obj) {

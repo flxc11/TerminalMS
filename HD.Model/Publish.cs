@@ -78,5 +78,39 @@ namespace HD.Model
                 this._PublishQuantity = value;
             }
         }
+        private DateTime? _StartTime = null;
+        /// <summary>  
+        /// 报修时间  
+        /// </summary>  
+        /// <returns></returns>  
+        [Description("上屏时间")]
+        public DateTime? StartTime
+        {
+            get
+            {
+                return this._StartTime;
+            }
+            set
+            {
+                this._StartTime = value;
+            }
+        }
+        private DateTime? _EndTime = null;
+        /// <summary>  
+        /// 报修时间  
+        /// </summary>  
+        /// <returns></returns>  
+        [Description("下屏时间")]
+        public DateTime? EndTime
+        {
+            get
+            {
+                return this._EndTime;
+            }
+            set
+            {
+                this._EndTime = value;
+            }
+        }
     }
 }

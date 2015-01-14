@@ -35,3 +35,4 @@ D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\zh-Hans\EntityFramework.reso
 D:\工作文件夹\CMS系统\TerminalMS\WebSite\obj\Debug\WebSite.csprojResolveAssemblyReference.cache
 D:\工作文件夹\CMS系统\TerminalMS\WebSite\obj\Debug\WebSite.dll
 D:\工作文件夹\CMS系统\TerminalMS\WebSite\obj\Debug\WebSite.pdb
+D:\工作文件夹\CMS系统\TerminalMS\WebSite\bin\ICSharpCode.SharpZipLib.dll

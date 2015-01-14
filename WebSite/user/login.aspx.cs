@@ -1,4 +1,6 @@
-﻿using HD.Config;
+﻿using System.Data;
+using HD.Config;
+using HD.Framework.DataAccess;
 using HD.Framework.Define;
 using HD.Framework.Helper;
 using HD.Framework.Utils;
@@ -50,6 +52,26 @@ namespace WebSite.user
                 info.UserLoginID = model.Id.ToString();
                 info.UserLoginName = model.UserName;
 
+                //获取该账号登入时，默认要跳到哪一个页面
+                string defaultUrl = string.Empty;
+                using (DataTable dt = DataFactory.GetInstance().ExecuteTable("select * from wzrb_UserPrivilege where UserType='user' and UserID=" + model.Id))
+                {
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        string privilege = dt.Rows[0]["UserPrivilegeList"].ToString();
+                        privilege = privilege.Substring(1, privilege.Length - 2);
+                        string[] arrayStrings = privilege.Split(',');
+                        using (DataTable dt1 = DataFactory.GetInstance().ExecuteTable("select * from wzrb_Module where UserGroup='user' and ID=" + arrayStrings[0]))
+                        {
+                            if (dt1 != null && dt1.Rows.Count > 0)
+                            {
+                                defaultUrl += dt1.Rows[0]["ModuleUrl"];
+                            }
+                        }
+                    }
+                }
+
+                Response.Cookies["uloginid"].Value = model.Id.ToString();
                 //创建登录状态
                 CookieHelper.WriteCookie(UIConfig.UserCookieName, info, UIConfig.Expires);
 
@@ -60,7 +82,7 @@ namespace WebSite.user
                 }
                 else
                 {
-                    Response.Redirect("home.aspx");
+                    Response.Redirect(defaultUrl);
                 }
                 
             }

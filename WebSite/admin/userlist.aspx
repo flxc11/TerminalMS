@@ -38,6 +38,7 @@
         <div id="tb"></div>
     </div>
     </form>
+    <div id="privilege"></div>
 </body>
 <script>
     function getWidth(percent) {
@@ -46,7 +47,9 @@
     }
     var editIndex = undefined;
     function endEditing() {
-        if (editIndex == undefined) { return true }
+        if (editIndex == undefined) {
+            return true;
+        }
         if ($('#tb').datagrid('validateRow', editIndex)) {
             var ed = $('#tb').datagrid('getEditor', { index: editIndex, field: 'Id' });
             $('#tb').datagrid('endEdit', editIndex);
@@ -159,11 +162,13 @@
         var rows = $('#tb').datagrid('getChanges');
         alert(rows.length + ' rows are changed!');
     }
+    //密码重置
     function resetUserPass() {
         if (endEditing()) {
             $.messager.confirm('确认', '您确认想要重置密码吗？', function (r) {
                 if (r) {
                     var selectedRow = $('#tb').datagrid('getSelected');  //获取选中行
+                    console.log(selectedRow);
                     $.ajax({
                         url: '/user/userjson.aspx?Time=' + new Date().getTime(),
                         type: 'POST',
@@ -193,6 +198,62 @@
                 }
             });
         }
+    }
+    //权限设置
+    function resetPrivilege(id) {
+        var userId = id; //获取选中行的用户id
+        $('#privilege').dialog({
+            title: '权限设置',
+            width: 400,
+            height: 200,
+            closed: false,
+            cache: false,
+            href: 'privilege.aspx?Type=user&UserID=' + userId,
+            modal: true,
+            buttons: [
+                {
+                    text: '保存',
+                    iconCls: 'icon-ok',
+                    handler: function () {
+                        var checkValue = [];
+                        var checkInput = $("input[name='checkall']:checked");
+                        checkInput.each(function() {
+                            checkValue.push($(this).val());
+                        });
+                        $.ajax({
+                            url: 'adminjson.aspx?Time=' + new Date().getTime(),
+                            type: 'POST',
+                            dataType: 'json',
+                            data: {
+                                action: 'ResetPrivilege',
+                                Id: userId,
+                                UserType: "user",
+                                CheckInputValue: checkValue.join(",")
+                            }
+                        })
+                        .done(function (d) {
+                            if (d.returnval == "1") {
+                                alert('提示', d.returnstr);
+                            };
+                        })
+                        .fail(function (d) {
+                            if (d.returnval == "0") {
+                                alert('警告', '更新失败');
+                            };
+                        })
+                        .always(function () {
+                            console.log("complete");
+                            $('#tb').datagrid('reload');
+                        });
+                    }
+                }, {
+                    text: '取消',
+                    handler: function () {
+                        $('#privilege').dialog('close');
+                    }
+                }
+            ]
+        });
     }
     var fields = "Id,UserName,TrueName,UserTel,UserUnit,UserEmail,CreateTime";
     var flag = true;
@@ -253,7 +314,7 @@
             {
                 title: '操作', field: 'xxx', width: getWidth(0.15), align: 'center',
                 formatter: function (value, row, index) {
-                    return "<a href='javascript:;' onclick='resetUserPass()'>密码重置</a>";
+                    return "<a href='javascript:;' onclick='resetUserPass()'>密码重置</a> <a href='javascript:;' onclick='resetPrivilege(" + row.Id + ")'>权限设置</a>";
                 }
             }
         ]],

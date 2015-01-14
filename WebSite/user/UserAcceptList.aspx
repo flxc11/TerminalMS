@@ -26,7 +26,7 @@
                 <a href="#">
                     <span class="manager"><%=UserLoginInfo.UserLoginName %></span>
                 </a>
-                <a href="/admin/login.aspx">
+                <a href="login.aspx">
                     <span class="lg-out">退 出</span>
                 </a>
             </div>

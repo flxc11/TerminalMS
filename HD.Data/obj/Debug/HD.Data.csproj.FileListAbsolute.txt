@@ -11,3 +11,5 @@ D:\工作文件夹\CMS系统\TerminalMS\HD.Data\bin\Debug\HD.Model.pdb
 D:\工作文件夹\CMS系统\TerminalMS\HD.Data\obj\Debug\HD.Data.csprojResolveAssemblyReference.cache
 D:\工作文件夹\CMS系统\TerminalMS\HD.Data\obj\Debug\HD.Data.dll
 D:\工作文件夹\CMS系统\TerminalMS\HD.Data\obj\Debug\HD.Data.pdb
+D:\工作文件夹\CMS系统\TerminalMS\HD.Data\bin\Debug\NPOI.dll
+D:\工作文件夹\CMS系统\TerminalMS\HD.Data\bin\Debug\ICSharpCode.SharpZipLib.dll

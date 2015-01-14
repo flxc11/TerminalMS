@@ -1,4 +1,5 @@
-﻿using HD.Config;
+﻿using System.Collections;
+using HD.Config;
 using HD.Framework.DataAccess;
 using HD.Framework.Helper;
 using HD.Framework.Utils;
@@ -49,6 +50,9 @@ namespace WebSite.admin
                     break;
                 case "ApplySearch":
                     this.ApplySearch();
+                    break;
+                case "ResetPrivilege":
+                    this.ResetPrivilege();
                     break;
                 default:
                     break;
@@ -251,6 +255,52 @@ namespace WebSite.admin
             string str = JsonHelper.EasyGridTable(dt, easyGrid_Sort, recordCount);
             Response.Write(str);
             Response.End();
+        }
+        #endregion
+
+        #region  注册会员权限设置
+
+        private void ResetPrivilege()
+        {
+            string checkList = Request.Params["CheckInputValue"];
+            string userId = Request.Params["Id"];
+            string userType = Request.Params["UserType"];
+            if (!string.IsNullOrEmpty(userId) && Public.IsNumber(userId))
+            {
+                if (!string.IsNullOrEmpty(checkList))
+                {
+                    checkList = "," + checkList + ",";
+                }
+                Hashtable hs = new Hashtable();
+                hs.Add("UserID", userId);
+                hs.Add("UserType", userType);
+
+                UserPrivilege userPrivilege = new UserPrivilege();
+                if (userPrivilege.IsExist(hs))
+                {
+                    userPrivilege.Update(
+                        "UserPrivilegeList='" + checkList + "'",
+                        " and UserID='" + userId + "' and UserType='" + userType + "'");
+                    Response.Write("\"returnval\":\"1\",\"returnstr\":\"权限更新成功！\"");
+                    Response.End();
+                }
+                else
+                {
+                    userPrivilege.UserID = Convert.ToInt32(userId);
+                    userPrivilege.UserType = userType;
+                    userPrivilege.UserPrivilegeList = checkList;
+
+                    userPrivilege.Insert();
+
+                    Response.Write("\"returnval\":\"1\",\"returnstr\":\"权限设置成功！\"");
+                    Response.End();
+                }
+            }
+            else
+            {
+                Response.Write("\"returnval\":\"0\"");
+                Response.End();
+            }
         }
         #endregion
     }

@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="main-l">
-        <!--#include file="/control/userleft.html" -->
+        <!--#include file="/control/adminleft.html" -->
     </div>
     <div class="main-r">
         <div class="map-search">

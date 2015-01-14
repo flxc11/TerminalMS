@@ -71,7 +71,7 @@
                             </tr>
                             <tr>
                             <td height="40" colspan="2" align="center" bgcolor="#FFFFFF">业务内容</td>
-                            <td colspan="9" bgcolor="#FFFFFF">　<asp:TextBox ID="ADTitle" runat="server" CssClass="easyui-validatebox accept-input-item accept-input7"></asp:TextBox></td>
+                            <td colspan="9" bgcolor="#FFFFFF">　<asp:TextBox ID="ADTitle" runat="server" CssClass="easyui-validatebox accept-input-item accept-input7" data-options="required:true,missingMessage:'请输入业务内容'"></asp:TextBox></td>
                             </tr>
                             <tr>
                             <td height="40" colspan="2" align="center" bgcolor="#FFFFFF">发布形式</td>
@@ -203,17 +203,21 @@
     })
     function submitForm(action) {
         if ($("#ff").form("validate")) {
-            function doSubmit() {
-                var _num = "";
-                $("input[type='checkbox'][name='CheckBoxList2']:checked").each(function (i, v) {
-                    _num += $(this).parent().next().find("input").val() + ",";
-                });
-                //$("#pubNum").val(_num);
-                //alert($("#pubNum").val());
-                $("#ff").attr("action", "AcceptAdd.aspx?Action=Save&pubNum=" + _num);
-                $("#ff").submit();
+            if ($(".divTerminal input[type='checkbox'][name='checkTermi']:checked").length > 0) {
+                function doSubmit() {
+                    var _num = "";
+                    $("input[type='checkbox'][name='CheckBoxList2']:checked").each(function(i, v) {
+                        _num += $(this).parent().next().find("input").val() + ",";
+                    });
+                    //$("#pubNum").val(_num);
+                    //alert($("#pubNum").val());
+                    $("#ff").attr("action", "AcceptAdd.aspx?Action=Save&pubNum=" + _num);
+                    $("#ff").submit();
+                }
+                setTimeout(doSubmit, 0);
+            } else {
+                $.messager.alert("信息", "请选择投放地域！");
             }
-            setTimeout(doSubmit, 0);
         } else {
             $.messager.alert("信息", "信息填写不规范");
         }

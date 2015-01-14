@@ -56,6 +56,9 @@ namespace WebSite.user
                 case "GetMonthTer":
                     this.GetMonthTer();
                     break;
+                case "GetModule":
+                    this.GetModule();
+                    break;
                 default:
                     break;
             }
@@ -527,6 +530,45 @@ namespace WebSite.user
                 strCnt = strCnt.Substring(0, strCnt.Length - 1);
                 Response.Write("{\"returnval\":\"1\",\"date\":\"" + strCnt + "\"}");
                 Response.End();
+            }
+        }
+        #endregion
+
+        #region  获取左侧module
+
+        private void GetModule()
+        {
+            string userId = Request.Params["UserId"];
+            string type = Request.Params["UserType"];
+            if (string.IsNullOrEmpty(type))
+            {
+                type = "user";
+            }
+            if (!string.IsNullOrEmpty(userId) && Public.IsNumber(userId))
+            {
+                using (DataTable dt = DataFactory.GetInstance().ExecuteTable("select * from wzrb_UserPrivilege where UserType='" + type + "' and UserID=" + userId))
+                {
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        string privilege = dt.Rows[0]["UserPrivilegeList"].ToString();
+                        privilege = privilege.Substring(1, privilege.Length - 2);
+
+                        string content = string.Empty;
+                        string[] arrayStrings = privilege.Split(',');
+                        for (int i = 0; i < arrayStrings.Length; i++)
+                        {
+                            using (DataTable dt1 = DataFactory.GetInstance().ExecuteTable("select * from wzrb_Module where UserGroup='" + type + "' and ID=" + arrayStrings[i]))
+                            {
+                                if (dt1 != null && dt1.Rows.Count > 0)
+                                {
+                                    content += dt1.Rows[0]["ModuleContent"];
+                                }
+                            }
+                        }
+                        Response.Write(content);
+                        Response.End();
+                    }
+                }
             }
         }
         #endregion

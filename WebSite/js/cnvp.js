@@ -531,6 +531,10 @@ var Common = {
                 return "客运中心";
             case "10":
                 return "医院系统";
+            case "11":
+                return "电影院线";
+            case "12":
+                return "旅游系统";
             default:
                 return "";
         }

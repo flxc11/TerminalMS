@@ -74,7 +74,7 @@
                             </tr>
                             <tr>
                             <td height="40" colspan="2" align="center" bgcolor="#FFFFFF">业务内容</td>
-                            <td colspan="9" bgcolor="#FFFFFF">　<asp:TextBox ID="ADTitle" runat="server" CssClass="easyui-validatebox accept-input-item accept-input7"></asp:TextBox></td>
+                            <td colspan="9" bgcolor="#FFFFFF">　<asp:TextBox ID="ADTitle" runat="server" CssClass="easyui-validatebox accept-input-item accept-input7" data-options="required:true,missingMessage:'请输入业务内容'"></asp:TextBox></td>
                             </tr>
                             <tr>
                             <td height="40" colspan="2" align="center" bgcolor="#FFFFFF">发布形式</td>
@@ -98,7 +98,7 @@
                             <td colspan="2" bgcolor="#FFFFFF">　<asp:TextBox ID="CountTime" runat="server" CssClass="accept-input-item accept-input3"></asp:TextBox></td>
                             </tr>
                             <tr>
-                            <td height="30" colspan="2" align="center" bgcolor="#FFFFFF">投放地域</td>
+                            <td height="30" colspan="2" align="center" bgcolor="#FFFFFF">投放地域<br/><%=Count %></td>
                             <td colspan="9" bgcolor="#FFFFFF">
                                 <asp:Repeater ID="rptClass" runat="server" OnItemDataBound="rptClass_ItemDataBound">
                                     <ItemTemplate>
@@ -176,7 +176,7 @@
     </form>
 </body>
 <script>
-    $(function () {
+    $(function() {
         var _page = $.query.get("page");
         var _StartTime = $.query.get("StartTime");
         var _EndTime = $.query.get("EndTime");
@@ -184,7 +184,7 @@
         var _Keyword = $.query.get("Keyword");
         var backurl = "AcceptList.aspx?page=" + _page + "&StartTime=" + _StartTime + "&EndTime=" + _EndTime + "&SelectType=" + _SelectType + "&Keyword=" + _Keyword;
         $("#btn-submit").attr('href', backurl);
-        $("input[type='checkbox'][name='CheckBoxList2']").on("click", function () {
+        $("input[type='checkbox'][name='CheckBoxList2']").on("click", function() {
             if ($(this).is(":checked")) {
                 $(this).parent().next().find("input").removeAttr("readOnly");
                 $(this).parent().next().find("input").attr("class", "accept-input6");
@@ -195,12 +195,12 @@
                 $(this).parent().next().find("input").attr("readOnly", "readOnly");
                 $(this).parent().next().find("input").attr("class", "readonly");
             };
-        })
-        $(".checkCount").each(function (i, v) {
+        });
+        $(".checkCount").each(function(i, v) {
             var _count = $(this).parent().next().find("input[name='checkTermi']:checked").length;
             $(this).html(_count);
-        })
-    })
+        });
+    });
     $(".ClassTitle").on("click", function () {
         var divTermi = $(this).next("div");
         if (divTermi.is(":visible")) {
@@ -212,9 +212,10 @@
         }
     });
     $(".divTerminal a").on("click",
-    function (event) {
-        $(this).find(":checkbox").click(function (event) { event.stopPropagation(); }).trigger("click");
-    });
+        function() {
+            $(this).find(":checkbox").click(function(event) { event.stopPropagation(); }).trigger("click");
+        }
+    );
     function submitForm(action) {
         if ($("#ff").form("validate")) {
             function doSubmit() {

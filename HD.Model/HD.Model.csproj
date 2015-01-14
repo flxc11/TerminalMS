@@ -51,6 +51,7 @@
     <Compile Include="Source.cs" />
     <Compile Include="Terminal.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserPrivilege.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HD.Framework\HD.Framework.csproj">
